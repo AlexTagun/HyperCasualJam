@@ -4,18 +4,21 @@ public class NailObject : MonoBehaviour
 {
     private void processHit(Vector2 inHitRelativePosition, Vector2 inHitRelativeVelocity) {
         Vector2 theVelocityProjected = Vector3.Project(inHitRelativeVelocity, Vector2.up);
-        float theProjectedHitImpulseValue = theVelocityProjected.magnitude;
-        float theActialHitImpulse = _movePerHitImpulseValueFactorCurve.Evaluate(theProjectedHitImpulseValue);
-        float theDistanceToPass = theActialHitImpulse;
-        float theDistanceToPassClamped = Mathf.Clamp(theDistanceToPass, 0f, maxDistanceToPassPerHit);
+        bool theVelocityIsDownOriented = (theVelocityProjected.y < 0);
+        if (theVelocityIsDownOriented) {
+            float theProjectedHitImpulseValue = theVelocityProjected.magnitude;
+            float theActialHitImpulse = _movePerHitImpulseValueFactorCurve.Evaluate(theProjectedHitImpulseValue);
+            float theDistanceToPass = theActialHitImpulse;
+            float theDistanceToPassClamped = Mathf.Clamp(theDistanceToPass, 0f, maxDistanceToPassPerHit);
 
-        transform.position += transform.TransformDirection(Vector2.down) * theDistanceToPassClamped;
-        _passedHeight += theDistanceToPassClamped;
+            transform.position += transform.TransformDirection(Vector2.down) * theDistanceToPassClamped;
+            _passedHeight += theDistanceToPassClamped;
 
-        //Debug.DrawLine(
-        //    transform.TransformPoint(inHitRelativePosition),
-        //    transform.TransformPoint(inHitRelativePosition + inHitRelativeVelocity),
-        //    Color.red, 10f, false);
+            //Debug.DrawLine(
+            //    transform.TransformPoint(inHitRelativePosition),
+            //    transform.TransformPoint(inHitRelativePosition + inHitRelativeVelocity),
+            //    Color.red, 10f, false);
+        }
     }
 
     #region CheatHitProcessing
