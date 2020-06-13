@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5022670934781622979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.971, y: -2.879, z: 0}
+  m_LocalPosition: {x: 1.971, y: -2.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5022670936452257949}
@@ -202,7 +202,6 @@ MonoBehaviour:
   _bonusForHitPerHeightDelta: 10
   _bonusForHalfHeightPassing: 4
   _bonusForHeightPassing: 15
-  _pointsBonusPerMoreThenHalfHeight: 5
   _pointsPenaltryPerLessThenHalfHeight: 1
   _pointsPenaltryForNotTouchedNail: 4
 --- !u!1 &5022670935735621118

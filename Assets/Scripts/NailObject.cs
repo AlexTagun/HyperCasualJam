@@ -56,4 +56,5 @@ public class NailObject : MonoBehaviour
     [SerializeField] private BoxCollider2D _bodyCollider = null;
 
     private float _passedHeight = 0f;
+
 }
