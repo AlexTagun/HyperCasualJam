@@ -15,9 +15,7 @@ public class NailObject : MonoBehaviour
             transform.position += transform.TransformDirection(Vector2.down) * theDistanceToPassClamped;
             _passedHeight += theDistanceToPassClamped;
 
-            float theRatioHeightPassedByHit = theDistanceToPassClamped / height;
-            if (theRatioHeightPassedByHit > _ratioHeightPassedByHitLimitToSpawnEffects)
-                spawnHitEffect(theOldPassedHeight, _passedHeight, height, inHitRelativePosition);
+            spawnHitEffect(theOldPassedHeight, _passedHeight, height, inHitRelativePosition);
 
             if (null != winPointsGiver)
                 winPointsGiver.processNailHitted(theOldPassedHeight, _passedHeight, height);
@@ -36,13 +34,20 @@ public class NailObject : MonoBehaviour
     void spawnHitEffect(float inOldNailPassedHeight, float inNewNailPassedHeight, float inNailHeight, Vector2 inHitRelativePosition) {
         float theHalfHeight = inNailHeight / 2;
 
-        ParticleSystem theParticleSystemToSpawn = _hitEffectParticleSystem;
+        ParticleSystem theParticleSystemToSpawn = null;
+        
+        //Default only if speed is enough
+        float theRatioHeightPassedByHit = (inNewNailPassedHeight - inOldNailPassedHeight) / inNailHeight;
+        if (theRatioHeightPassedByHit > _ratioHeightPassedByHitLimitToSpawnEffects)
+            theParticleSystemToSpawn = _hitEffectParticleSystem;
+
         if (inOldNailPassedHeight < theHalfHeight && inNewNailPassedHeight >= theHalfHeight)
             theParticleSystemToSpawn = _halfPassedHitEffectParticleSystem;
         else if (inOldNailPassedHeight < inNailHeight && inNewNailPassedHeight >= inNailHeight)
             theParticleSystemToSpawn = _fullPassedHitEffectParticleSystem;
 
-        EffectsManager.spawnParticleSystem(theParticleSystemToSpawn, transform.TransformPoint(inHitRelativePosition));
+        if (theParticleSystemToSpawn)
+            EffectsManager.spawnParticleSystem(theParticleSystemToSpawn, transform.TransformPoint(inHitRelativePosition));
     }
 
     private void FixedUpdate() {
