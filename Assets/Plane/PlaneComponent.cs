@@ -8,7 +8,8 @@ public class PlaneComponent : MonoBehaviour {
     [SerializeField] private Rigidbody2D rigidbody;
     [SerializeField] private float throwRangeFrom;
     [SerializeField] private float throwRangeTo;
-    [SerializeField] private Vector2 direction;
+    [SerializeField] private Transform directionPoint1;
+    [SerializeField] private Transform directionPoint2;
     [SerializeField] private float speed;
 
     private bool _isMouseDown = false;
@@ -40,7 +41,7 @@ public class PlaneComponent : MonoBehaviour {
 
     private void Push() {
         Debug.Log("Push");
-        rigidbody.AddForce(direction * speed, ForceMode2D.Impulse);
+        rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
     }
 
     private IEnumerator StartPushTimer() {
@@ -50,5 +51,11 @@ public class PlaneComponent : MonoBehaviour {
         // yield return new WaitForSeconds(0f);
         Debug.Log("Push");
         Push();
+    }
+
+    private Vector2 GetRandomDirection() {
+        var direction1 = (directionPoint1.position - transform.position).normalized;
+        var direction2 = (directionPoint2.position - transform.position).normalized;
+        return new Vector2(Random.Range(direction1.x, direction2.x), Random.Range(direction1.y, direction2.y));
     }
 }
