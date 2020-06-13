@@ -18,8 +18,9 @@ public class Plane : MonoBehaviour {
     private void Update() {
         var isUpMoving = AllEnginesAreMoving(enginesUp);
         var isDownMoving = AllEnginesAreMoving(enginesDown);
-        if(isUpMoving) wingUp.CanMove = isUpMoving;
-        if(isDownMoving) wingDown.CanMove = isDownMoving;
+        // Debug.Log($"isDownMoving : {isDownMoving}");
+        wingUp.CanMove = isUpMoving;
+        wingDown.CanMove = isDownMoving;
     }
 
     private bool AllEnginesAreMoving(PlaneComponent[] engines) {

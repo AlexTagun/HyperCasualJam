@@ -33,7 +33,7 @@ public class PlaneComponent : MonoBehaviour {
     }
 
     private void Start() {
-        if(gameObject.name == "wing_up") Debug.Log($"{gameObject.name} : {CanMove}");
+        // if(gameObject.name == "wing_down") Debug.Log($"{gameObject.name} : {CanMove}");
         Debug.DrawLine(transform.position, transform.position + Vector3.left * accuracy, Color.red, 500);
     }
 
@@ -45,21 +45,12 @@ public class PlaneComponent : MonoBehaviour {
     
     private void OnMouseUp() {
         _isMouseDown = false;
-        // Debug.Log(Mathf.Abs(_startLocalPosition - CurPosition).ma);
         if((_startLocalPosition - CurPosition).magnitude > accuracy) return;
         Debug.Log(_isMoving);
         if(!_isMoving) return;
         Debug.Log("stop");
         
         _isMoving = false;
-        // rigidbody.isKinematic = true;
-        // transform.localPosition = _startLocalPosition;
-        var parentTransform = GetComponentInParent<Transform>();
-        // transform.TransformPoint(_startLocalPosition)
-        Debug.Log($"parent: {parentTransform.gameObject.name}");
-        Debug.Log($"parent: {parentTransform.position}");
-        Debug.Log($"local: {_startLocalPosition}");
-        Debug.Log($"world: {parentTransform.TransformPoint(_startLocalPosition)}");
         var pos = transform.parent.TransformPoint(_startLocalPosition);
         rigidbody.MovePosition( pos);
         
@@ -75,10 +66,13 @@ public class PlaneComponent : MonoBehaviour {
 
     private void Push() {
         Debug.Log("Push");
-        // rigidbody.isKinematic = false;
-        _isMoving = true;
-        if (CanMove) rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
-        if (!CanMove) StartCoroutine(StartPushTimer());
+        // if(gameObject.name == "wing_down") Debug.Log($"{gameObject.name} : {CanMove}");
+        if (CanMove) {
+            _isMoving = true;
+            rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
+        } else {
+            StartCoroutine(StartPushTimer());
+        }
     }
 
     private IEnumerator StartPushTimer() {
