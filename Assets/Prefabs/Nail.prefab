@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5022670934323217544}
   - component: {fileID: 5022670934323217545}
   m_Layer: 0
-  m_Name: Visual2
+  m_Name: HitZoneVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5022670934323217547}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.538, z: 0}
+  m_LocalPosition: {x: 0, y: 0.247, z: 0}
   m_LocalScale: {x: 4.59, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5022670934781623007}
@@ -156,25 +156,25 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.0025042538
-      outSlope: 0.0025042538
+      inSlope: 0.00063852785
+      outSlope: 0.00063852785
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 3.7489858
-      value: 0.009388411
-      inSlope: 0.0025042538
+      time: 11.883385
+      value: 0.0075878724
+      inSlope: 0.00063852785
       outSlope: 0
       tangentMode: 5
       weightedMode: 0
       inWeight: 0.092831865
       outWeight: 0.2988341
     - serializedVersion: 3
-      time: 10
-      value: 1
-      inSlope: 0.15847214
+      time: 50
+      value: 0.39868164
+      inSlope: 0.010260453
       outSlope: 0.12600362
       tangentMode: 5
       weightedMode: 0
@@ -211,7 +211,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5022670935735621118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.538, z: 0}
+  m_LocalPosition: {x: 0, y: 0.251, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5022670934781623007}
@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5022670936182151332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.755, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5022670934781623007}
@@ -298,7 +298,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 1.14}
+  m_Size: {x: 0.05, y: 2}
   m_EdgeRadius: 0
 --- !u!1 &5022670936452257948
 GameObject:
@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 5022670936452257949}
   - component: {fileID: 5022670936452257946}
   m_Layer: 0
-  m_Name: Visual1
+  m_Name: BodyVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,8 +325,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5022670936452257948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 8.32, z: 1}
+  m_LocalPosition: {x: 0, y: -0.785, z: 0}
+  m_LocalScale: {x: 0.46, y: 14.14, z: 1}
   m_Children: []
   m_Father: {fileID: 5022670934781623007}
   m_RootOrder: 0
