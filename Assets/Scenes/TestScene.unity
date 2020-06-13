@@ -2301,36 +2301,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1531003977}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1718527829
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1718527830}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1718527830
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718527829}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1777795239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2838,6 +2808,7 @@ GameObject:
   - component: {fileID: 2000766060}
   - component: {fileID: 2000766061}
   - component: {fileID: 2000766062}
+  - component: {fileID: 2000766063}
   m_Layer: 0
   m_Name: conveyor
   m_TagString: Untagged
@@ -2853,7 +2824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2000766059}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1, y: 0, z: 0}
+  m_LocalPosition: {x: 6.5, y: -2.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1240775742}
@@ -2894,6 +2865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dec486634426a1409241fbcae1dbf24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _generationObjectOnBoard: {fileID: 2000766063}
   _rigidbody2D: {fileID: 2000766061}
   _partsConveyor:
   - {fileID: 753494173}
@@ -2902,6 +2874,31 @@ MonoBehaviour:
   - {fileID: 1857095374}
   _directionMove: {x: -1, y: 0}
   _speedMove: 1
+--- !u!114 &2000766063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000766059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cedd45d582a24f14fbcd67b5c573c9d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _generationsObjects:
+  - _objectForGenerate: {fileID: 5022670934781622979, guid: c06701b30f6021744a70bb31b02cdcd3,
+      type: 3}
+    _generationProbability: 0.4
+  - _objectForGenerate: {fileID: 8231790139465881290, guid: 53149e6e84707884dbfe7ffeaea88a82,
+      type: 3}
+    _generationProbability: 0.3
+  - _objectForGenerate: {fileID: 5746401245449019573, guid: 10d47312952a01e48833ee342271bccd,
+      type: 3}
+    _generationProbability: 0.3
+  _minAmountObjectsOnBoard: 2
+  _maxAmountObjectsOnBoard: 5
+  transformParent: {fileID: 63211593}
 --- !u!4 &2021025062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022670934781623007, guid: c06701b30f6021744a70bb31b02cdcd3,
