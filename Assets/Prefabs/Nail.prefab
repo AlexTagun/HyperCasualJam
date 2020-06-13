@@ -150,7 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d0c28158ac1ecd438c405df8b5e5913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitCollider: {fileID: 5022670935735621116}
   _movePerHitImpulseValueFactorCurve:
     serializedVersion: 2
     m_Curve:
@@ -184,6 +183,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _fixPassingDistanceByHeight: 1
+  _hitCollider: {fileID: 5022670935735621116}
+  _bodyCollider: {fileID: 5022670936182151330}
 --- !u!1 &5022670935735621118
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +254,7 @@ GameObject:
   - component: {fileID: 5022670936182151333}
   - component: {fileID: 5022670936182151330}
   m_Layer: 0
-  m_Name: Collision1
+  m_Name: BodyCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,8 +6,11 @@ public class NailObject : MonoBehaviour
         Vector2 theVelocityProjected = Vector3.Project(inHitRelativeVelocity, Vector2.up);
         float theProjectedHitImpulseValue = theVelocityProjected.magnitude;
         float theActialHitImpulse = _movePerHitImpulseValueFactorCurve.Evaluate(theProjectedHitImpulseValue);
+        float theDistanceToPass = theActialHitImpulse;
+        float theDistanceToPassClamped = Mathf.Clamp(theDistanceToPass, 0f, maxDistanceToPassPerHit);
 
-        transform.position += transform.TransformDirection(Vector2.down) * theActialHitImpulse;
+        transform.position += transform.TransformDirection(Vector2.down) * theDistanceToPassClamped;
+        _passedHeight += theDistanceToPassClamped;
 
         //Debug.DrawLine(
         //    transform.TransformPoint(inHitRelativePosition),
@@ -27,8 +30,16 @@ public class NailObject : MonoBehaviour
     }
     #endregion
 
-    //Fields
-    [SerializeField] private Collider2D _hitCollider = null;
 
+    private float height => _bodyCollider.size.y;
+    private float maxDistanceToPassPerHit => (_fixPassingDistanceByHeight ? (height - _passedHeight) : float.MaxValue);
+
+    //Fields
     [SerializeField] private AnimationCurve _movePerHitImpulseValueFactorCurve = null;
+    [SerializeField] private bool _fixPassingDistanceByHeight = true;
+
+    [SerializeField] private Collider2D _hitCollider = null;
+    [SerializeField] private BoxCollider2D _bodyCollider = null;
+
+    private float _passedHeight = 0f;
 }
