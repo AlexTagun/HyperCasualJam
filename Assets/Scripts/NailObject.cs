@@ -11,13 +11,12 @@ public class NailObject : MonoBehaviour
             float theDistanceToPass = theActialHitImpulse;
             float theDistanceToPassClamped = Mathf.Clamp(theDistanceToPass, 0f, maxDistanceToPassPerHit);
 
+            float theOldPassedHeight = _passedHeight;
             transform.position += transform.TransformDirection(Vector2.down) * theDistanceToPassClamped;
             _passedHeight += theDistanceToPassClamped;
 
-            //Debug.DrawLine(
-            //    transform.TransformPoint(inHitRelativePosition),
-            //    transform.TransformPoint(inHitRelativePosition + inHitRelativeVelocity),
-            //    Color.red, 10f, false);
+            if (null != winPointsGiver)
+                winPointsGiver.processNailHitted(theOldPassedHeight, _passedHeight, height);
         }
     }
 
@@ -25,17 +24,29 @@ public class NailObject : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         bool theIsHitColliderHitter = (collision.otherCollider == _hitCollider);
         bool theIsHittedByNailHitter = collision.collider.GetComponent<NailHitter>();
-
-        //Debug.Log(">>> " + collision.collider.name + "  | " + collision.otherCollider.name);
-
         if (theIsHitColliderHitter && theIsHittedByNailHitter)
             processHit(transform.InverseTransformPoint(collision.GetContact(0).point), collision.relativeVelocity);
     }
     #endregion
 
+    private void FixedUpdate() {
+        updateFinalizingLogic();
+    }
+
+    private void updateFinalizingLogic() {
+        Vector3 theViewportPosition = Camera.main.WorldToViewportPoint(transform.position);
+        if (theViewportPosition.x < 0f)
+            finalize();
+    }
+
+    private void finalize() {
+        if (null != winPointsGiver)
+            winPointsGiver.processNailFinalizing(_passedHeight, height);
+    }
 
     private float height => _bodyCollider.size.y;
     private float maxDistanceToPassPerHit => (_fixPassingDistanceByHeight ? (height - _passedHeight) : float.MaxValue);
+    private WinPointsForNailGiver winPointsGiver => GetComponent<WinPointsForNailGiver>();
 
     //Fields
     [SerializeField] private AnimationCurve _movePerHitImpulseValueFactorCurve = null;

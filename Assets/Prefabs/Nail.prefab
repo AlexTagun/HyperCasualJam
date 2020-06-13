@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 5022670934781623007}
   - component: {fileID: 5022670934781622977}
   - component: {fileID: 5022670934781622976}
+  - component: {fileID: 1212316775278311625}
   m_Layer: 0
   m_Name: Nail
   m_TagString: Untagged
@@ -186,6 +187,24 @@ MonoBehaviour:
   _fixPassingDistanceByHeight: 1
   _hitCollider: {fileID: 5022670935735621116}
   _bodyCollider: {fileID: 5022670936182151330}
+--- !u!114 &1212316775278311625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022670934781622979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35efbbb0db0c0904688149869c31f801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bonusForHitPerHeightDelta: 10
+  _bonusForHalfHeightPassing: 4
+  _bonusForHeightPassing: 15
+  _pointsBonusPerMoreThenHalfHeight: 5
+  _pointsPenaltryPerLessThenHalfHeight: 1
+  _pointsPenaltryForNotTouchedNail: 4
 --- !u!1 &5022670935735621118
 GameObject:
   m_ObjectHideFlags: 0
