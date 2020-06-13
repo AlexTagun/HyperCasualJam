@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class ConveyorMovement : MonoBehaviour
 {
+    [SerializeField] private GenerationObjectOnBoard _generationObjectOnBoard;
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private List<GameObject> _partsConveyor = new List<GameObject>();
     public List<GameObject> PartsConveyor => _partsConveyor;
+    //[SerializeField] private List<GameObject> _nails = new List<GameObject>();
     [SerializeField] private Vector2 _directionMove;
     [SerializeField] private float _speedMove;
 
@@ -37,15 +39,7 @@ public class ConveyorMovement : MonoBehaviour
         _partsConveyor.Remove(boardBehindScreen);
         boardBehindScreen.transform.position = new Vector2(_partsConveyor[_partsConveyor.Count - 1].transform.position.x + boardBehindScreen.transform.localScale.x * boardBehindScreen.GetComponent<BoxCollider2D>().size.x, boardBehindScreen.transform.position.y);
         _partsConveyor.Add(boardBehindScreen);
-
-
-
-
-
-
-
-
-
+        _generationObjectOnBoard.GenerationRandomObjectAtRandomPosition(boardBehindScreen);
 
     }
 }
