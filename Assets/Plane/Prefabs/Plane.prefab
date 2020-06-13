@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1261595963050199403}
   - component: {fileID: 1436508572819107515}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,8 +229,8 @@ Transform:
   - {fileID: 1846107416106190381}
   - {fileID: 855535645187053636}
   - {fileID: 3052310550643082412}
-  - {fileID: 5314291414066675376}
   - {fileID: 3522653184880069696}
+  - {fileID: 5314291414066675376}
   - {fileID: 4316206588054070562}
   - {fileID: 8260851731774724088}
   - {fileID: 1261595963050199403}
@@ -247,7 +247,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent
+      value: body
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497848, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -364,7 +364,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent (7)
+      value: tail_down
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -507,7 +507,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent (1)
+      value: tail_up
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -650,7 +650,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent (3)
+      value: wing_up
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -778,7 +778,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent (6)
+      value: engine_up_2
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -818,7 +818,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -904,7 +904,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent (8)
+      value: engine_down_1
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -1050,7 +1050,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent (5)
+      value: engine_up_1
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -1176,7 +1176,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent (4)
+      value: wing_down
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -1216,7 +1216,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
@@ -1304,7 +1304,7 @@ PrefabInstance:
     - target: {fileID: 1576047992760497830, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
       propertyPath: m_Name
-      value: PlaneComponent (9)
+      value: engine_down_2
       objectReference: {fileID: 0}
     - target: {fileID: 1576047992760497850, guid: 53b26dfd1e995944d801ec2d621164f4,
         type: 3}
