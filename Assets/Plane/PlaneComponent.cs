@@ -13,11 +13,14 @@ public class PlaneComponent : MonoBehaviour {
     [SerializeField] private Transform directionPoint2;
     [SerializeField] private float speed;
     [SerializeField] private float accuracy;
-
+    
     private bool _isMouseDown = false;
     private Vector2 _mouseDelta;
     private Vector2 _startLocalPosition;
+
+    public bool IsMoving => _isMoving;
     private bool _isMoving;
+    public bool CanMove = true;
 
     private Vector2 CurPosition => new Vector2(transform.position.x, transform.position.y);
     private Vector2 CurLocalPosition => new Vector2(transform.localPosition.x, transform.localPosition.y);
@@ -30,6 +33,7 @@ public class PlaneComponent : MonoBehaviour {
     }
 
     private void Start() {
+        if(gameObject.name == "wing_up") Debug.Log($"{gameObject.name} : {CanMove}");
         Debug.DrawLine(transform.position, transform.position + Vector3.left * accuracy, Color.red, 500);
     }
 
@@ -73,7 +77,8 @@ public class PlaneComponent : MonoBehaviour {
         Debug.Log("Push");
         // rigidbody.isKinematic = false;
         _isMoving = true;
-        rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
+        if (CanMove) rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
+        if (!CanMove) StartCoroutine(StartPushTimer());
     }
 
     private IEnumerator StartPushTimer() {
