@@ -51,6 +51,7 @@ public class PlaneComponent : MonoBehaviour {
         Debug.Log("stop");
         
         _isMoving = false;
+        Plane.OnComponentStopMoving?.Invoke(this);
         var pos = transform.parent.TransformPoint(_startLocalPosition);
         rigidbody.MovePosition( pos);
         
@@ -69,6 +70,7 @@ public class PlaneComponent : MonoBehaviour {
         // if(gameObject.name == "wing_down") Debug.Log($"{gameObject.name} : {CanMove}");
         if (CanMove) {
             _isMoving = true;
+            Plane.OnComponentStartMoving?.Invoke(this);
             rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
         } else {
             StartCoroutine(StartPushTimer());
