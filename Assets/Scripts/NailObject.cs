@@ -15,6 +15,10 @@ public class NailObject : MonoBehaviour
             transform.position += transform.TransformDirection(Vector2.down) * theDistanceToPassClamped;
             _passedHeight += theDistanceToPassClamped;
 
+            float theRatioHeightPassedByHit = theDistanceToPassClamped / height;
+            if (theRatioHeightPassedByHit > _ratioHeightPassedByHitLimitToSpawnEffects)
+                spawnHitEffect(theOldPassedHeight, _passedHeight, height, inHitRelativePosition);
+
             if (null != winPointsGiver)
                 winPointsGiver.processNailHitted(theOldPassedHeight, _passedHeight, height);
         }
@@ -28,6 +32,18 @@ public class NailObject : MonoBehaviour
             processHit(transform.InverseTransformPoint(collision.GetContact(0).point), collision.relativeVelocity);
     }
     #endregion
+
+    void spawnHitEffect(float inOldNailPassedHeight, float inNewNailPassedHeight, float inNailHeight, Vector2 inHitRelativePosition) {
+        float theHalfHeight = inNailHeight / 2;
+
+        ParticleSystem theParticleSystemToSpawn = _hitEffectParticleSystem;
+        if (inOldNailPassedHeight < theHalfHeight && inNewNailPassedHeight >= theHalfHeight)
+            theParticleSystemToSpawn = _halfPassedHitEffectParticleSystem;
+        else if (inOldNailPassedHeight < inNailHeight && inNewNailPassedHeight >= inNailHeight)
+            theParticleSystemToSpawn = _fullPassedHitEffectParticleSystem;
+
+        EffectsManager.spawnParticleSystem(theParticleSystemToSpawn, transform.TransformPoint(inHitRelativePosition));
+    }
 
     private void FixedUpdate() {
         updateFinalizingLogic();
@@ -54,6 +70,10 @@ public class NailObject : MonoBehaviour
 
     [SerializeField] private Collider2D _hitCollider = null;
     [SerializeField] private BoxCollider2D _bodyCollider = null;
+    [SerializeField] private ParticleSystem _hitEffectParticleSystem = null;
+    [SerializeField] private ParticleSystem _halfPassedHitEffectParticleSystem = null;
+    [SerializeField] private ParticleSystem _fullPassedHitEffectParticleSystem = null;
+    [SerializeField] private float _ratioHeightPassedByHitLimitToSpawnEffects = 0f;
 
     private float _passedHeight = 0f;
 

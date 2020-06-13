@@ -187,6 +187,13 @@ MonoBehaviour:
   _fixPassingDistanceByHeight: 1
   _hitCollider: {fileID: 5022670935735621116}
   _bodyCollider: {fileID: 5022670936182151330}
+  _hitEffectParticleSystem: {fileID: 6419603101224967631, guid: 8db9638e69a038f49825d703c76359dd,
+    type: 3}
+  _halfPassedHitEffectParticleSystem: {fileID: 6419603101224967631, guid: dae6c92d8bb457741819eb1b7aa6e578,
+    type: 3}
+  _fullPassedHitEffectParticleSystem: {fileID: 6419603101224967631, guid: e78d24776b8518a49a84e34fb6de342a,
+    type: 3}
+  _ratioHeightPassedByHitLimitToSpawnEffects: 0.02
 --- !u!114 &1212316775278311625
 MonoBehaviour:
   m_ObjectHideFlags: 0
