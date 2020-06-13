@@ -18,6 +18,7 @@ public static class EventManager
     {
         OnEndGame?.Invoke();
     }
+
     // Start is called before the first frame update
 
 }
