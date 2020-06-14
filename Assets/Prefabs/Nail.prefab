@@ -186,7 +186,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _groundY: -6
+  _groundY: -5.8
   _hitCollider: {fileID: 5022670935735621116}
   _bodyCollider: {fileID: 5022670936182151330}
   _hitEffectParticleSystem: {fileID: 6419603101224967631, guid: 8db9638e69a038f49825d703c76359dd,
