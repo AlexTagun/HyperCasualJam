@@ -25,14 +25,12 @@ public class NailObject : MonoBehaviour
         }
     }
 
-    #region CheatHitProcessing
     private void OnCollisionEnter2D(Collision2D collision) {
         bool theIsHitColliderHitter = (collision.otherCollider == _hitCollider);
         bool theIsHittedByNailHitter = collision.collider.GetComponent<NailHitter>();
         if (theIsHitColliderHitter && theIsHittedByNailHitter)
             processHit(transform.InverseTransformPoint(collision.GetContact(0).point), collision.relativeVelocity);
     }
-    #endregion
 
     private void SpawnSoundPlayerHit(float theDistanceToPassClamped, Sound sound, Vector2 positionSpawn)
     {
