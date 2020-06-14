@@ -10,8 +10,9 @@ public class ConveyorMovement : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody2D;
     [SerializeField] private List<GameObject> _partsConveyor = new List<GameObject>();
     [SerializeField] private List<GameObject> _objectsOnConveyoe = new List<GameObject>();
+    [SerializeField] private AnimationCurve _speedConveyorOnTimeCurve = null;
     [SerializeField] private Vector2 _directionMove;
-    [SerializeField] private float _speedMove;
+    //[SerializeField] private float _speedMove;
     private Camera _camera;
 
     // Start is called before the first frame update
@@ -51,7 +52,7 @@ public class ConveyorMovement : MonoBehaviour
 
     private void MoveConveyor()
     {
-        _rigidbody2D.velocity = _directionMove * _speedMove;
+        _rigidbody2D.velocity = _directionMove *  _speedConveyorOnTimeCurve.Evaluate(Time.time); ;
     }
     public void MoveBoardToEnd()
     {

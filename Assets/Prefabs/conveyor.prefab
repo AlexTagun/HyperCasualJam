@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4734074261908395939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.2, y: -3.5, z: 0}
+  m_LocalPosition: {x: -20, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4734074263083015651}
@@ -70,20 +70,31 @@ MonoBehaviour:
   - {fileID: 290152249523134556}
   - {fileID: 1012639253603319896}
   - {fileID: 290152250068919421}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _speedConveyorOnTimeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.037465274
+      value: 4.943839
+      inSlope: 3.2358413
+      outSlope: 3.2358413
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 14.311897
+      value: 51.133636
+      inSlope: 3.2358413
+      outSlope: 3.2358413
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   _directionMove: {x: -1, y: 0}
-  _speedMove: 4
 --- !u!114 &4734074261908395937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,7 +765,7 @@ PrefabInstance:
     - target: {fileID: 5022670934781623007, guid: c06701b30f6021744a70bb31b02cdcd3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.75
+      value: 48.2
       objectReference: {fileID: 0}
     - target: {fileID: 5022670934781623007, guid: c06701b30f6021744a70bb31b02cdcd3,
         type: 3}
@@ -830,12 +841,12 @@ PrefabInstance:
     - target: {fileID: 5746401245449019561, guid: 10d47312952a01e48833ee342271bccd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.23
+      value: 54.7
       objectReference: {fileID: 0}
     - target: {fileID: 5746401245449019561, guid: 10d47312952a01e48833ee342271bccd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.78
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 5746401245449019561, guid: 10d47312952a01e48833ee342271bccd,
         type: 3}
@@ -1036,7 +1047,7 @@ PrefabInstance:
     - target: {fileID: 5022670934781623007, guid: c06701b30f6021744a70bb31b02cdcd3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.9
+      value: 62.8
       objectReference: {fileID: 0}
     - target: {fileID: 5022670934781623007, guid: c06701b30f6021744a70bb31b02cdcd3,
         type: 3}
