@@ -117,10 +117,10 @@ MonoBehaviour:
   - _objectForGenerate: {fileID: 5746401245449019573, guid: 10d47312952a01e48833ee342271bccd,
       type: 3}
     _generationProbability: 0.3
-  _minDistanceToNextObject: 6
-  _maxDistanceToNextObject: 17
-  _minYPosition: 1
-  _maxYPosition: 1.2
+  _minDistanceToNextObject: 4
+  _maxDistanceToNextObject: 14
+  _minYPosition: 1.1
+  _maxYPosition: 1.45
   transformParent: {fileID: 4734074263455457189}
 --- !u!50 &4734074261908395936
 Rigidbody2D:

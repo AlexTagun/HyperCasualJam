@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4734074261908395937, guid: 086bba0803b53184cb10fa1cb814921e,
+        type: 3}
+      propertyPath: _maxDistanceToNextObject
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395939, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: m_Name
@@ -522,6 +527,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
