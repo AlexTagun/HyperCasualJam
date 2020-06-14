@@ -30,7 +30,18 @@ public class PlaneComponent : MonoBehaviour {
 
     private Vector2 CurPosition => new Vector2(transform.position.x, transform.position.y);
     private Vector2 CurLocalPosition => new Vector2(transform.localPosition.x, transform.localPosition.y);
-    private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    // private Vector2 MousePosition => Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    private Vector2 MousePosition => GetMousePosition();
+
+    private Vector2 GetMousePosition() {
+        var z = 0;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+        float distance;
+        xy.Raycast(ray, out distance);
+        var res = ray.GetPoint(distance);
+        return new Vector2(res.x, res.y);
+    }
 
     private void Awake() {
         _startLocalPosition = CurLocalPosition;
@@ -59,7 +70,7 @@ public class PlaneComponent : MonoBehaviour {
         
         _isMoving = false;
         audioSource.PlayOneShot(putSound);
-        Plane.OnComponentStopMoving?.Invoke(this);
+        Airplane.OnComponentStopMoving?.Invoke(this);
         var pos = transform.parent.TransformPoint(_startLocalPosition);
         rigidbody.MovePosition( pos);
         rigidbody.MoveRotation(0);
@@ -81,7 +92,7 @@ public class PlaneComponent : MonoBehaviour {
         if (CanMove) {
             _isMoving = true;
             audioSource.PlayOneShot(pushSound);
-            Plane.OnComponentStartMoving?.Invoke(this);
+            Airplane.OnComponentStartMoving?.Invoke(this);
             rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
             rigidbody.angularVelocity = GetRandomAngularVelocity();
         } else {

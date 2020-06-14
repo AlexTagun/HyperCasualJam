@@ -8,7 +8,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Plane : MonoBehaviour {
+public class Airplane : MonoBehaviour {
     [SerializeField] private PlaneComponent wingUp;
     [SerializeField] private PlaneComponent wingDown;
     [SerializeField] private PlaneComponent[] enginesUp;
