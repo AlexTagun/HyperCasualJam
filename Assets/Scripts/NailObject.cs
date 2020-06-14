@@ -16,6 +16,7 @@ public class NailObject : MonoBehaviour
             _passedHeight += theDistanceToPassClamped;
 
             spawnHitEffect(theOldPassedHeight, _passedHeight, height, inHitRelativePosition);
+            SetSoundHitVolumeAndPlay(theDistanceToPassClamped);
 
             if (null != winPointsGiver)
                 winPointsGiver.processNailHitted(theOldPassedHeight, _passedHeight, height);
@@ -31,6 +32,16 @@ public class NailObject : MonoBehaviour
     }
     #endregion
 
+    void SetSoundHitVolumeAndPlay(float theDistanceToPassClamped)
+    {
+        float newVolume = theDistanceToPassClamped / maxDistanceToPassPerHit;
+        if (_audioSource.isPlaying && _audioSource.volume > newVolume) { }
+        else
+        {
+            _audioSource.volume = newVolume / 2; // sound too loud , when volume = 1
+            _audioSource.Play();
+        }
+    }
     void spawnHitEffect(float inOldNailPassedHeight, float inNewNailPassedHeight, float inNailHeight, Vector2 inHitRelativePosition) {
         float theHalfHeight = inNailHeight / 2;
 
@@ -79,6 +90,7 @@ public class NailObject : MonoBehaviour
     [SerializeField] private ParticleSystem _halfPassedHitEffectParticleSystem = null;
     [SerializeField] private ParticleSystem _fullPassedHitEffectParticleSystem = null;
     [SerializeField] private float _ratioHeightPassedByHitLimitToSpawnEffects = 0f;
+    [SerializeField] private AudioSource _audioSource = null;
 
     private float _passedHeight = 0f;
 
