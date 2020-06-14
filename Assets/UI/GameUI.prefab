@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2688988942743605455}
   - component: {fileID: 6212080043756378478}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 2688988942743605455}
+  HACK_MOVEMENT: {fileID: 0}
 --- !u!1 &5465704538580377929
 GameObject:
   m_ObjectHideFlags: 0

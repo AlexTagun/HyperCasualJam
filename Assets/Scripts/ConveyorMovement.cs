@@ -15,6 +15,8 @@ public class ConveyorMovement : MonoBehaviour
     //[SerializeField] private float _speedMove;
     private Camera _camera;
 
+    public float GAME_TIMER = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,11 +50,12 @@ public class ConveyorMovement : MonoBehaviour
     private void FixedUpdate()
     {
         MoveConveyor();
+        GAME_TIMER += Time.fixedDeltaTime;
     }
 
     private void MoveConveyor()
     {
-        _rigidbody2D.velocity = _directionMove *  _speedConveyorOnTimeCurve.Evaluate(Time.time); ;
+        _rigidbody2D.velocity = _directionMove *  _speedConveyorOnTimeCurve.Evaluate(GAME_TIMER); ;
     }
     public void MoveBoardToEnd()
     {
