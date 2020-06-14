@@ -17,6 +17,7 @@ public class NailObject : MonoBehaviour
 
             spawnHitEffect(theOldPassedHeight, _passedHeight, heightToPass, inHitRelativePosition);
             SetSoundHitVolumeAndPlay(theDistanceToPassClamped);
+            updateStatusObject(_passedHeight, _heightToPass);
 
             if (null != winPointsGiver)
                 winPointsGiver.processNailHitted(theOldPassedHeight, _passedHeight, heightToPass, winPointsBasedOnStartingPassingFactor);
@@ -61,9 +62,14 @@ public class NailObject : MonoBehaviour
             EffectsManager.spawnParticleSystem(theParticleSystemToSpawn, transform.TransformPoint(inHitRelativePosition));
     }
 
+    private void updateStatusObject(float inPassedHeight, float inHeightToPass) {
+        _nailStatusObject.setNailState(inPassedHeight, inHeightToPass);
+    }
+
     private void Start() {
         computeFullHeightToPass();
         computeWinPointsBasedOnStartingPassingFactor();
+        initialUpdateNailStatusObject();
     }
 
     void computeFullHeightToPass() {
@@ -75,6 +81,10 @@ public class NailObject : MonoBehaviour
 
     void computeWinPointsBasedOnStartingPassingFactor() {
         _winPointsBasedOnStartingPassingFactor = _heightToPass / height;
+    }
+
+    void initialUpdateNailStatusObject() {
+        updateStatusObject(_passedHeight, _heightToPass);
     }
 
     private void FixedUpdate() {
@@ -109,6 +119,7 @@ public class NailObject : MonoBehaviour
     [SerializeField] private ParticleSystem _fullPassedHitEffectParticleSystem = null;
     [SerializeField] private float _ratioHeightPassedByHitLimitToSpawnEffects = 0f;
     [SerializeField] private AudioSource _audioSource = null;
+    [SerializeField] private NailStatusObject _nailStatusObject = null;
 
     private float _heightToPass = 0f;
     private float _winPointsBasedOnStartingPassingFactor = 0f;
