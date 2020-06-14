@@ -7,7 +7,6 @@ public class GameTimerObject : MonoBehaviour
     }
 
     private string getTimeString(float inTime) {
-        Debug.Log(inTime);
         System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(inTime);
         return string.Format("{0:D2}:{1:D2}:{2:D2}", timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds);
    }
