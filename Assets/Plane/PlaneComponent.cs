@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 public class PlaneComponent : MonoBehaviour {
     [SerializeField] private Rigidbody2D rigidbody;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip putSound;
+    [SerializeField] private AudioClip pushSound;
     [SerializeField] private float throwRangeFrom;
     [SerializeField] private float throwRangeTo;
     [SerializeField] private Transform directionPoint1;
@@ -53,6 +56,7 @@ public class PlaneComponent : MonoBehaviour {
         Debug.Log("stop");
         
         _isMoving = false;
+        audioSource.PlayOneShot(putSound);
         Plane.OnComponentStopMoving?.Invoke(this);
         var pos = transform.parent.TransformPoint(_startLocalPosition);
         rigidbody.MovePosition( pos);
@@ -72,6 +76,7 @@ public class PlaneComponent : MonoBehaviour {
         // if(gameObject.name == "wing_down") Debug.Log($"{gameObject.name} : {CanMove}");
         if (CanMove) {
             _isMoving = true;
+            audioSource.PlayOneShot(pushSound);
             Plane.OnComponentStartMoving?.Invoke(this);
             rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
         } else {
