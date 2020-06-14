@@ -96,7 +96,7 @@ public class PlaneComponent : MonoBehaviour {
             Airplane.OnComponentStartMoving?.Invoke(this);
             rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
             rigidbody.angularVelocity = GetRandomAngularVelocity();
-            Camera.main.transform.DOShakePosition(3, 1, 5, 90);
+            Camera.main.transform.DOShakePosition(3, 0.3f, 3, 90);
         } else {
             StartCoroutine(StartPushTimer());
         }
