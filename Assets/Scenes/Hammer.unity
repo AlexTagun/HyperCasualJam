@@ -146,57 +146,57 @@ PrefabInstance:
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[0].inSlope
-      value: 0.021549257
+      value: 0.009980426
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[0].outSlope
-      value: 0.021549257
+      value: 0.009980426
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[1].time
-      value: 165.32346
+      value: 50.3832
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[1].value
-      value: 10.084582
+      value: 5.7616224
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[1].inSlope
-      value: 0.021549257
+      value: 0.033408254
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[1].outSlope
-      value: 0.021549257
+      value: 0.033408254
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[2].time
-      value: 112.384636
+      value: 170.8508
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[2].value
-      value: 10.029486
+      value: 8.311931
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[2].inSlope
-      value: 0.05660858
+      value: 0.021170076
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[2].outSlope
-      value: 0.05660858
+      value: 0.021170076
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
@@ -251,22 +251,22 @@ PrefabInstance:
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[0].time
-      value: -0.025827408
+      value: -81.31895
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[0].value
-      value: 6.521428
+      value: 4.447179
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[1].tangentMode
-      value: 34
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: _speedConveyorOnTimeCurve.m_Curve.Array.data[1].outWeight
-      value: 0.33333334
+      value: 0.21246597
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
