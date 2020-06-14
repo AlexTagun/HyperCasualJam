@@ -30,6 +30,7 @@ public class NailStatusObject : MonoBehaviour
     private void showMailFinishedStatusAnimation() {
         Transform theImageTransform = _nailFinishedStatusImage.transform;
 
+        _nailFinishedStatusImage.transform.rotation = Quaternion.identity;
         float theOriginalScale = theImageTransform.localScale.x;
         theImageTransform.DOScale(theOriginalScale * 2f, 0f);
         theImageTransform.DOScale(theOriginalScale * 1f, 1f);
