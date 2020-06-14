@@ -211,6 +211,7 @@ MonoBehaviour:
   _nailLeftHeightMask: {fileID: 8705868087102145513}
   _nailFinishedStatusImage: {fileID: 3215179527527109424}
   _nailShouldBeHittedWarning: {fileID: 8736807672499648993}
+  _leftNailHeightForBigMask: 0.1
   _fullAlpha: 0.7
   _fullAlphaDistane: 3
   _zeroAlphaDistane: 10
