@@ -18,7 +18,9 @@ public class NailObject : MonoBehaviour
 
             spawnHitEffect(theOldPassedHeight, _passedHeight, heightToPass, inHitRelativePosition);
             SpawnSoundPlayerHit(theDistanceToPassClamped, _sounds[0], transform.TransformPoint(inHitRelativePosition));
-            updateStatusObject(_passedHeight, _heightToPass);
+
+            if (0 != theDistanceToPassClamped)
+                updateStatusObject(_passedHeight, _heightToPass);
 
             if (null != winPointsGiver)
                 winPointsGiver.processNailHitted(theOldPassedHeight, _passedHeight, heightToPass, winPointsBasedOnStartingPassingFactor);

@@ -14,18 +14,31 @@ public class NailStatusObject : MonoBehaviour
             showNailShouldBeHittedWarning();
     }
 
+    private static float kBigSizeForLeftNailMaskX = 1f;
+    private static float kBigSizeForLeftNailMaskY = 0.3f;
+
     private void setNailLeftHeight(float inPassedHeight, float inHeightToPass) {
-        //Debug.Log(inPassedHeight + " | " + inHeightToPass);
+        if (inPassedHeight == inHeightToPass) {
+            _nailLeftHeightMask.gameObject.SetActive(false);
+        } else {
+            float theLeftHeightToPass = (inHeightToPass - inPassedHeight);
 
-        float theLeftHeightToPass = (inHeightToPass - inPassedHeight);
+            Vector3 theLocalPosition = _nailLeftHeightMask.transform.localPosition;
+            theLocalPosition.y = -theLeftHeightToPass / 2;
+            _nailLeftHeightMask.transform.localPosition = theLocalPosition;
 
-        Vector3 theLocalPosition = _nailLeftHeightMask.transform.localPosition;
-        theLocalPosition.y = -theLeftHeightToPass/2;
-        _nailLeftHeightMask.transform.localPosition = theLocalPosition;
+            Vector3 theLocalScale = _nailLeftHeightMask.transform.localScale;
+            if (theLeftHeightToPass <= _leftNailHeightForBigMask) {
+                theLocalScale.x = kBigSizeForLeftNailMaskX;
+                theLocalScale.y = kBigSizeForLeftNailMaskY;
 
-        Vector3 theLocalScale = _nailLeftHeightMask.transform.localScale;
-        theLocalScale.y = theLeftHeightToPass;
-        _nailLeftHeightMask.transform.localScale = theLocalScale;
+                _nailLeftHeightMask.color = Color.yellow;
+            } else {
+                theLocalScale.y = theLeftHeightToPass;
+            }
+
+            _nailLeftHeightMask.transform.localScale = theLocalScale;
+        }
     }
 
     private void setNailFinishedStatus(float inPassedHeight, float inHeightToPass) {
@@ -114,6 +127,7 @@ public class NailStatusObject : MonoBehaviour
     [SerializeField] SpriteRenderer _nailLeftHeightMask = null;
     [SerializeField] SpriteRenderer _nailFinishedStatusImage = null;
     [SerializeField] SpriteRenderer _nailShouldBeHittedWarning = null;
+    [SerializeField] float _leftNailHeightForBigMask = 0.1f;
     [SerializeField] float _fullAlpha = 0.7f;
     [SerializeField] float _fullAlphaDistane = 3f;
     [SerializeField] float _zeroAlphaDistane = 10f;
