@@ -133,15 +133,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: conveyor
       objectReference: {fileID: 0}
+    - target: {fileID: 4734074261908395950, guid: 086bba0803b53184cb10fa1cb814921e,
+        type: 3}
+      propertyPath: _objectsOnConveyoe.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395951, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.7
+      value: 28.5
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395951, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: -6.4
       objectReference: {fileID: 0}
     - target: {fileID: 4734074261908395951, guid: 086bba0803b53184cb10fa1cb814921e,
         type: 3}
