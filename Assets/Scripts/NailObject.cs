@@ -52,8 +52,7 @@ public class NailObject : MonoBehaviour
 
         if (inOldNailPassedHeight < theHalfHeightToPass && inNewNailPassedHeight >= theHalfHeightToPass)
             theParticleSystemToSpawn = _halfPassedHitEffectParticleSystem;
-        else if (inOldNailPassedHeight < inHeightToPass && inNewNailPassedHeight >= inHeightToPass)
-        {
+        if (inOldNailPassedHeight < inHeightToPass && inNewNailPassedHeight >= inHeightToPass) {
             theParticleSystemToSpawn = _fullPassedHitEffectParticleSystem;
             SoundsManager.spawnSoundPlayer(_soundPlayer, _sounds[1], transform.TransformPoint(inHitRelativePosition));
         }
