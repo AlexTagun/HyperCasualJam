@@ -10,14 +10,19 @@ using UnityEngine;
 }
 public class SoundsManager : MonoBehaviour
 {
-    public static void spawnSoundPlayer(GameObject soundPlayer, Sound audioClip, Vector2 inPosition)
+    public static AudioSource spawnSoundPlayer(GameObject soundPlayer, Sound audioClip, Vector2 inPosition)
     {
         GameObject theNewSound = Instantiate(soundPlayer);
         if (theNewSound.GetComponent<AudioSource>() == null)
         {
             theNewSound.AddComponent<AudioSource>();
         }
+        AudioSource _audioSource = theNewSound.GetComponent<AudioSource>();
+        _audioSource.clip = audioClip._audioClip;
+        _audioSource.volume = audioClip._volume;
+        _audioSource.Play();
         theNewSound.transform.position = new Vector3(inPosition.x, inPosition.y, theNewSound.transform.position.z);
         theNewSound.AddComponent<SoundsAutoDestroyer>();
+        return _audioSource;
     }
 }

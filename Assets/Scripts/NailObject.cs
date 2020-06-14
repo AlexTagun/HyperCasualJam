@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class NailObject : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class NailObject : MonoBehaviour
             _passedHeight += theDistanceToPassClamped;
 
             spawnHitEffect(theOldPassedHeight, _passedHeight, heightToPass, inHitRelativePosition);
-            SetSoundHitVolumeAndPlay(theDistanceToPassClamped);
+            SpawnSoundPlayerHit(theDistanceToPassClamped, _sounds[0], transform.TransformPoint(inHitRelativePosition));
             updateStatusObject(_passedHeight, _heightToPass);
 
             if (null != winPointsGiver)
@@ -33,15 +34,11 @@ public class NailObject : MonoBehaviour
     }
     #endregion
 
-    void SetSoundHitVolumeAndPlay(float theDistanceToPassClamped)
+    private void SpawnSoundPlayerHit(float theDistanceToPassClamped, Sound sound, Vector2 positionSpawn)
     {
-        float newVolume = theDistanceToPassClamped / heightToPass;
-        if (_audioSource.isPlaying && _audioSource.volume > newVolume) { }
-        else
-        {
-            _audioSource.volume = newVolume / 2; // sound too loud , when volume = 1
-            _audioSource.Play();
-        }
+        AudioSource soundPlayerAudioSourse = SoundsManager.spawnSoundPlayer(_soundPlayer, sound, positionSpawn);
+        float newVolume = theDistanceToPassClamped / heightToPass * sound._volume;
+        soundPlayerAudioSourse.volume = newVolume;
     }
     private void spawnHitEffect(float inOldNailPassedHeight, float inNewNailPassedHeight, float inHeightToPass, Vector2 inHitRelativePosition) {
         float theHalfHeightToPass = inHeightToPass / 2;
@@ -56,10 +53,15 @@ public class NailObject : MonoBehaviour
         if (inOldNailPassedHeight < theHalfHeightToPass && inNewNailPassedHeight >= theHalfHeightToPass)
             theParticleSystemToSpawn = _halfPassedHitEffectParticleSystem;
         else if (inOldNailPassedHeight < inHeightToPass && inNewNailPassedHeight >= inHeightToPass)
+        {
             theParticleSystemToSpawn = _fullPassedHitEffectParticleSystem;
+            SoundsManager.spawnSoundPlayer(_soundPlayer, _sounds[1], transform.TransformPoint(inHitRelativePosition));
+        }
 
         if (theParticleSystemToSpawn)
             EffectsManager.spawnParticleSystem(theParticleSystemToSpawn, transform.TransformPoint(inHitRelativePosition));
+
+        //SpawnSoundPlayer(_sounds[0], transform.TransformPoint(inHitRelativePosition));
     }
 
     private void updateStatusObject(float inPassedHeight, float inHeightToPass) {
@@ -108,8 +110,11 @@ public class NailObject : MonoBehaviour
     [SerializeField] private ParticleSystem _halfPassedHitEffectParticleSystem = null;
     [SerializeField] private ParticleSystem _fullPassedHitEffectParticleSystem = null;
     [SerializeField] private float _ratioHeightPassedByHitLimitToSpawnEffects = 0f;
-    [SerializeField] private AudioSource _audioSource = null;
     [SerializeField] private NailStatusObject _nailStatusObject = null;
+
+    [Header("Sound")]
+    [SerializeField] private List<Sound> _sounds = new List<Sound>();
+    [SerializeField] private GameObject _soundPlayer;
 
     private float _heightToPass = 0f;
     private float _winPointsBasedOnStartingPassingFactor = 0f;
