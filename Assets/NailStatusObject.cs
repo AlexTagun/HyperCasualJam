@@ -6,6 +6,12 @@ public class NailStatusObject : MonoBehaviour
     public void setNailState(float inPassedHeight, float inHeightToPass) {
         setNailLeftHeight(inPassedHeight, inHeightToPass);
         setNailFinishedStatus(inPassedHeight, inHeightToPass);
+        setNailShouldBeFinishedWarningState(inPassedHeight, inHeightToPass);
+    }
+
+    public void processNailPassedHalfOfScreen(float inPassedHeight, float inHeightToPass) {
+        if (inPassedHeight < inHeightToPass / 2)
+            showNailShouldBeHittedWarning();
     }
 
     private void setNailLeftHeight(float inPassedHeight, float inHeightToPass) {
@@ -24,13 +30,19 @@ public class NailStatusObject : MonoBehaviour
 
     private void setNailFinishedStatus(float inPassedHeight, float inHeightToPass) {
         if (0f != inPassedHeight && inPassedHeight >= inHeightToPass)
-            showMailFinishedStatusAnimation();
+            showNailFinishedStatusAnimation();
     }
 
-    private void showMailFinishedStatusAnimation() {
+    void setNailShouldBeFinishedWarningState(float inPassedHeight, float inHeightToPass) {
+        if (_isNailShouldBeHittedWarningShown)
+            if (inPassedHeight >= inHeightToPass / 2)
+                hideNailShouldBeHittedWarning();
+    }
+
+    private void showNailFinishedStatusAnimation() {
         Transform theImageTransform = _nailFinishedStatusImage.transform;
 
-        _nailFinishedStatusImage.transform.rotation = Quaternion.identity;
+        theImageTransform.rotation = Quaternion.identity;
         float theOriginalScale = theImageTransform.localScale.x;
         theImageTransform.DOScale(theOriginalScale * 2f, 0f);
         theImageTransform.DOScale(theOriginalScale * 1f, 1f);
@@ -40,14 +52,42 @@ public class NailStatusObject : MonoBehaviour
         _nailFinishedStatusImage.DOColor(theFinalColor, 1f);
     }
 
+    private void showNailShouldBeHittedWarning() {
+        Transform theImageTransform = _nailShouldBeHittedWarning.transform;
+
+        theImageTransform.transform.rotation = Quaternion.identity;
+        float theOriginalScale = theImageTransform.localScale.x;
+        theImageTransform.DOScale(theOriginalScale * 3f, 0f);
+        theImageTransform.DOScale(theOriginalScale * 1f, 1f);
+
+        Color theFinalColor = _nailShouldBeHittedWarning.color;
+        theFinalColor.a = 0.7f;
+        _nailShouldBeHittedWarning.DOColor(theFinalColor, 1f);
+
+        _isNailShouldBeHittedWarningShown = true;
+    }
+
+    private void hideNailShouldBeHittedWarning() {
+        Color theFinalColor = _nailShouldBeHittedWarning.color;
+        theFinalColor.a = 0f;
+        _nailShouldBeHittedWarning.DOColor(theFinalColor, 1f);
+    }
+
     private void Awake() {
         initNailFinishedStatusInvisibility();
+        initNailShouldBeHittedWarningInvisibility();
     }
 
     private void initNailFinishedStatusInvisibility() {
         Color theColor = _nailFinishedStatusImage.color;
         theColor.a = 0f;
         _nailFinishedStatusImage.color = theColor;
+    }
+
+    private void initNailShouldBeHittedWarningInvisibility() {
+        Color theColor = _nailShouldBeHittedWarning.color;
+        theColor.a = 0f;
+        _nailShouldBeHittedWarning.color = theColor;
     }
 
     private void FixedUpdate() {
@@ -73,7 +113,10 @@ public class NailStatusObject : MonoBehaviour
     //Fields
     [SerializeField] SpriteRenderer _nailLeftHeightMask = null;
     [SerializeField] SpriteRenderer _nailFinishedStatusImage = null;
+    [SerializeField] SpriteRenderer _nailShouldBeHittedWarning = null;
     [SerializeField] float _fullAlpha = 0.7f;
     [SerializeField] float _fullAlphaDistane = 3f;
     [SerializeField] float _zeroAlphaDistane = 10f;
+
+    bool _isNailShouldBeHittedWarningShown = false;
 }
