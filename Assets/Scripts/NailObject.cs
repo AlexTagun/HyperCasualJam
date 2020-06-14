@@ -92,6 +92,13 @@ public class NailObject : MonoBehaviour
             winPointsGiver.processNailFinalizing(_passedHeight, heightToPass, winPointsBasedOnStartingPassingFactor);
     }
 
+    private void FixedUpdate() {
+        float theViewportPositionX = Camera.main.WorldToViewportPoint(transform.position).x;
+        if (_lastViewportPositionX > 0.5f && theViewportPositionX <= 0.5f)
+            _nailStatusObject.processNailPassedHalfOfScreen(_passedHeight, heightToPass);
+        _lastViewportPositionX = theViewportPositionX;
+    }
+
     private float height => _bodyCollider.size.y;
     private float heightToPass => _heightToPass;
     private float maxHeightToPassPerHit => heightToPass - _passedHeight;
@@ -117,4 +124,6 @@ public class NailObject : MonoBehaviour
     private float _heightToPass = 0f;
     private float _winPointsBasedOnStartingPassingFactor = 0f;
     private float _passedHeight = 0f;
+
+    private float _lastViewportPositionX = 1f;
 }
