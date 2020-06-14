@@ -32,9 +32,19 @@ public class NailStatusObject : MonoBehaviour
                 theLocalScale.x = kBigSizeForLeftNailMaskX;
                 theLocalScale.y = kBigSizeForLeftNailMaskY;
 
-                _nailLeftHeightMask.color = Color.yellow;
+                Color theColor = _nailLeftHeightMask.color;
+                theColor.a = 1f;
+                _nailLeftHeightMask.color = theColor;
             } else {
                 theLocalScale.y = theLeftHeightToPass;
+            }
+
+            if (theLeftHeightToPass <= inHeightToPass/2) {
+                float theAlphaToRestore = _nailLeftHeightMask.color.a;
+                _nailLeftHeightMask.color = Color.blue;
+                Color theColor = _nailLeftHeightMask.color;
+                theColor.a = theAlphaToRestore;
+                _nailLeftHeightMask.color = theColor;
             }
 
             _nailLeftHeightMask.transform.localScale = theLocalScale;
