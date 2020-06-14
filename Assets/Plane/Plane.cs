@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,7 +34,8 @@ public class Plane : MonoBehaviour {
             var newScale = heightImage.transform.localScale;
             newScale.y = value / _startHeightValue;
             newScale.y = Mathf.Clamp01(newScale.y);
-            heightImage.transform.localScale = newScale;
+            // heightImage.transform.localScale = newScale;
+            heightImage.transform.DOScaleY(newScale.y, 0.5f);
             _curHeightValue = value;
         }
         get => _curHeightValue;
