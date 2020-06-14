@@ -102,8 +102,8 @@ MonoBehaviour:
     _generationProbability: 0.3
   _minDistanceToNextObject: 6
   _maxDistanceToNextObject: 17
-  _minYPosition: 1.4
-  _maxYPosition: 2.4
+  _minYPosition: 1
+  _maxYPosition: 1.2
   transformParent: {fileID: 4734074263455457189}
 --- !u!50 &4734074261908395936
 Rigidbody2D:
