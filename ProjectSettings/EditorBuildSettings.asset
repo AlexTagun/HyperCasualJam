@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Plane.unity
     guid: a5700d25dd7e91c40881157a1d7ad7d0
+  - enabled: 1
+    path: Assets/Scenes/HammerEnd.unity
+    guid: e859ee2e53ace5945aa2373fcd5d4eee
   m_configObjects: {}

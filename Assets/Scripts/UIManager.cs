@@ -1,26 +1,20 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public Image imageEndGame = null;
 
-    [SerializeField] private GameObject _endPanel;
+    //[SerializeField] private GameObject _endPanel;
     // Start is called before the first frame update
     void Start()
     {
-        EventManager.OnEndGame += ShowFinalWindow;
-        _endPanel.SetActive(false);
+        imageEndGame.DOFade(0, 0f);
+        //EventManager.OnEndGame += ShowFinalWindow;
+        //_endPanel.SetActive(false);
     }
 
-
-    private void ShowFinalWindow()
-    {
-        _endPanel.SetActive(true);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
