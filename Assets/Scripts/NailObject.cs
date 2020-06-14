@@ -74,6 +74,7 @@ public class NailObject : MonoBehaviour
     private void finalize() {
         if (null != winPointsGiver)
             winPointsGiver.processNailFinalizing(_passedHeight, height);
+        Destroy(this.gameObject);
     }
 
     private float height => _bodyCollider.size.y;

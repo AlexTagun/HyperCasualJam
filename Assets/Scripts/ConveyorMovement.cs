@@ -27,12 +27,11 @@ public class ConveyorMovement : MonoBehaviour
         {
             MoveBoardToEnd();
         }
-        if (_camera.WorldToViewportPoint(_objectsOnConveyoe[1].transform.position).x < 0)
+        if (_camera.WorldToViewportPoint(_objectsOnConveyoe[0].transform.position).x < 1)
         {
             var objectBehindScreen = _objectsOnConveyoe[0];
-            _objectsOnConveyoe.Remove(objectBehindScreen);
-            Destroy(objectBehindScreen);
             _objectsOnConveyoe.Add(_generationObjectOnBoard.GenerationRandomObjectAtRandomInterval(_objectsOnConveyoe[_objectsOnConveyoe.Count - 1].transform));
+            _objectsOnConveyoe.Remove(objectBehindScreen);
         }
     }
 
