@@ -1730,6 +1730,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2118671150}
   - component: {fileID: 2118671149}
+  - component: {fileID: 2118671151}
   m_Layer: 0
   m_Name: back
   m_TagString: Untagged
@@ -1795,12 +1796,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118671148}
   m_LocalRotation: {x: 0.0846344, y: 0, z: 0, w: 0.9964121}
-  m_LocalPosition: {x: 0, y: 0, z: 8}
-  m_LocalScale: {x: 2.555434, y: 2.555434, z: 2.555434}
+  m_LocalPosition: {x: 0, y: 0, z: 60}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 9.71, y: 0, z: 0}
+--- !u!114 &2118671151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118671148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e547933ef2dd9dc4a9acb2eed34858b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 2118671149}
+  speed: 0.003
 --- !u!1001 &2133691633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2277,6 +2292,11 @@ PrefabInstance:
       propertyPath: stopwatchText
       value: 
       objectReference: {fileID: 1210886313}
+    - target: {fileID: 6272930220836638192, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: plainBack
+      value: 
+      objectReference: {fileID: 2118671151}
     - target: {fileID: 7730696457398521337, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
       propertyPath: m_RootOrder

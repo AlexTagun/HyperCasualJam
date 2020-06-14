@@ -16,6 +16,7 @@ public class Airplane : MonoBehaviour {
     [SerializeField] private Image heightImage;
     [SerializeField] private GameObject loseWindow;
     [SerializeField] private TextMeshProUGUI stopwatchText;
+    [SerializeField] private PlainBack plainBack;
     
     public static Action<PlaneComponent> OnComponentStartMoving;
     public static Action<PlaneComponent> OnComponentStopMoving;
@@ -36,6 +37,7 @@ public class Airplane : MonoBehaviour {
             newScale.y = Mathf.Clamp01(newScale.y);
             // heightImage.transform.localScale = newScale;
             heightImage.transform.DOScaleY(newScale.y, 0.5f);
+            plainBack.transform.DOLocalMoveZ(Mathf.Lerp(8, 60, newScale.y), 0.5f);
             _curHeightValue = value;
         }
         get => _curHeightValue;
