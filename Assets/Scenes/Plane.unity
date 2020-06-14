@@ -1594,6 +1594,21 @@ PrefabInstance:
       propertyPath: throwRangeTo
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 855535644363305619, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeFrom
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 855535644363305619, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeTo
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 855535644363305619, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 855535644488772199, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1622,7 +1637,17 @@ PrefabInstance:
     - target: {fileID: 855535645187053638, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
       propertyPath: speed
-      value: 5
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 855535645187053638, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: accuracy
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 855535645187053638, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeFrom
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 928193807413564215, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
@@ -1638,6 +1663,21 @@ PrefabInstance:
         type: 3}
       propertyPath: throwRangeTo
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846107416106190383, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeFrom
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846107416106190383, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeTo
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1846107416106190383, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: speed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1983982026848568341, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
@@ -1684,6 +1724,11 @@ PrefabInstance:
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3052310550643082414, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeFrom
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3052310552144937151, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1729,6 +1774,16 @@ PrefabInstance:
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3522653184880069698, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeFrom
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522653184880069698, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeTo
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4316206588054070560, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
       propertyPath: throwRangeFrom
@@ -1748,6 +1803,16 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316206588054070560, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeFrom
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4316206588054070560, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeTo
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4409835731104389021, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
@@ -1778,6 +1843,16 @@ PrefabInstance:
         type: 3}
       propertyPath: throwRangeTo
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314291414066675378, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314291414066675378, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: accuracy
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5389812719038479300, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
@@ -1888,6 +1963,16 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260851731774724090, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeFrom
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8260851731774724090, guid: d1866c437807ca748aa15504c1572d92,
+        type: 3}
+      propertyPath: angularVelocityRangeTo
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8944690943938255579, guid: d1866c437807ca748aa15504c1572d92,
         type: 3}
