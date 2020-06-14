@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -95,6 +96,7 @@ public class PlaneComponent : MonoBehaviour {
             Airplane.OnComponentStartMoving?.Invoke(this);
             rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
             rigidbody.angularVelocity = GetRandomAngularVelocity();
+            Camera.main.transform.DOShakePosition(3, 1, 5, 90);
         } else {
             StartCoroutine(StartPushTimer());
         }
