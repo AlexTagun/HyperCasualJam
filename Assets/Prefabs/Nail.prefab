@@ -228,8 +228,8 @@ MonoBehaviour:
   _bonusForHitPerHeightDelta: 2
   _bonusForHalfHeightPassing: 4
   _bonusForHeightPassing: 5
-  _pointsPenaltryPerLessThenHalfHeight: 30
-  _pointsPenaltryForNotTouchedNail: 40
+  _pointsPenaltryPerLessThenHalfHeight: 8
+  _pointsPenaltryForNotTouchedNail: 17
 --- !u!1 &5022670935735621118
 GameObject:
   m_ObjectHideFlags: 0
