@@ -27,11 +27,16 @@ public class ConveyorMovement : MonoBehaviour
         {
             MoveBoardToEnd();
         }
-        if (_camera.WorldToViewportPoint(_objectsOnConveyoe[0].transform.position).x < 1)
+        if (_camera.WorldToViewportPoint(_objectsOnConveyoe[0].transform.position).x < 0)
         {
-            var objectBehindScreen = _objectsOnConveyoe[0];
+            GameObject objectBehindScreen = _objectsOnConveyoe[0];
+            _objectsOnConveyoe.Remove(_objectsOnConveyoe[0]);
+            Destroy(objectBehindScreen);
+
+        }
+        if (_camera.WorldToViewportPoint(_objectsOnConveyoe[_objectsOnConveyoe.Count - 1].transform.position).x < 1)
+        {
             _objectsOnConveyoe.Add(_generationObjectOnBoard.GenerationRandomObjectAtRandomInterval(_objectsOnConveyoe[_objectsOnConveyoe.Count - 1].transform));
-            _objectsOnConveyoe.Remove(objectBehindScreen);
         }
     }
 
@@ -50,5 +55,12 @@ public class ConveyorMovement : MonoBehaviour
         _partsConveyor.Remove(boardBehindScreen);
         boardBehindScreen.transform.position = new Vector2(_partsConveyor[_partsConveyor.Count - 1].transform.position.x + boardBehindScreen.transform.localScale.x * boardBehindScreen.GetComponent<BoxCollider2D>().size.x, boardBehindScreen.transform.position.y);
         _partsConveyor.Add(boardBehindScreen);
+    }
+    private void SpawnObject()
+    {
+        var LastObject = _objectsOnConveyoe[_objectsOnConveyoe.Count - 1];
+
+        _objectsOnConveyoe.Add(_generationObjectOnBoard.GenerationRandomObjectAtRandomInterval(_objectsOnConveyoe[_objectsOnConveyoe.Count - 1].transform));
+        _objectsOnConveyoe.Remove(LastObject);
     }
 }
