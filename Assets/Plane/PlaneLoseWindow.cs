@@ -12,6 +12,7 @@ public class PlaneLoseWindow : MonoBehaviour {
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private TextMeshProUGUI yourTimeText;
     [SerializeField] private TextMeshProUGUI bestTimeText;
+    [SerializeField] private CanvasGroup _canvasGroup;
     public static Action<TimeSpan> OnGameEnd;
 
     private bool _isNewRecord;
@@ -37,6 +38,8 @@ public class PlaneLoseWindow : MonoBehaviour {
     private void OnGameEndHandler(TimeSpan timeSpan) {
         _isNewRecord = timeSpan.Ticks > GetRecordTime().Ticks;
         gameObject.SetActive(true);
+        _canvasGroup.alpha = 0;
+        _canvasGroup.DOFade(1, 1.5f);
         yourTimeText.text = $"Your time: {timeSpan.Minutes:00}:{timeSpan.Seconds:00}";
         bestTimeText.text = $"Best time: {GetRecordTime().Minutes:00}:{GetRecordTime().Seconds:00}";
     }

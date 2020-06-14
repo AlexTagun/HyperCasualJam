@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7512982307966663909}
   - component: {fileID: 7512982307966663914}
   - component: {fileID: 7512982307966663908}
+  - component: {fileID: 988881016748678683}
   m_Layer: 5
   m_Name: loseWindow
   m_TagString: Untagged
@@ -63,11 +64,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23cbfa23fac613442a19905bbfa3b84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newRecordPanel: {fileID: 0}
   tryAgainButton: {fileID: 7512982309953381065}
   mainMenuButton: {fileID: 7512982308199900116}
   yourTimeText: {fileID: 7512982308890279828}
   bestTimeText: {fileID: 7512982308835131606}
+  _canvasGroup: {fileID: 988881016748678683}
 --- !u!114 &7512982307966663908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +97,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &988881016748678683
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7512982307966663910}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7512982307969880317
 GameObject:
   m_ObjectHideFlags: 0
