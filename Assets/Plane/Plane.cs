@@ -51,13 +51,9 @@ public class Plane : MonoBehaviour {
     private void Update() {
         wingUp.CanMove = enginesUp.All(engine => engine.IsMoving);
         wingDown.CanMove = enginesDown.All(engine => engine.IsMoving);
-    }
-
-    private bool AllEnginesAreMoving(PlaneComponent[] engines) {
-        return engines.All(engine => engine.IsMoving);
-    }
-
-    private int GetActivePlaneComponentsCount() {
-        return _allPlaneComponents.Count(engine => engine.IsMoving);
+        
+        foreach (var engine in enginesUp) engine.CanPut = !wingUp.IsMoving;
+        foreach (var engine in enginesDown) engine.CanPut = !wingDown.IsMoving;
+        
     }
 }

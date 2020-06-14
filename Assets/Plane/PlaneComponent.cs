@@ -21,6 +21,7 @@ public class PlaneComponent : MonoBehaviour {
     public bool IsMoving => _isMoving;
     private bool _isMoving;
     public bool CanMove = true;
+    public bool CanPut = true;
 
     private Vector2 CurPosition => new Vector2(transform.position.x, transform.position.y);
     private Vector2 CurLocalPosition => new Vector2(transform.localPosition.x, transform.localPosition.y);
@@ -47,6 +48,7 @@ public class PlaneComponent : MonoBehaviour {
         _isMouseDown = false;
         if((_startLocalPosition - CurPosition).magnitude > accuracy) return;
         Debug.Log(_isMoving);
+        if(!CanPut) return;
         if(!_isMoving) return;
         Debug.Log("stop");
         
