@@ -411,7 +411,7 @@ Transform:
   m_GameObject: {fileID: 269425706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.048, y: -4.194, z: 16.659996}
-  m_LocalScale: {x: 2.4684994, y: 2.9881942, z: 1}
+  m_LocalScale: {x: 2.8, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -662,7 +662,6 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
-  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1087,6 +1086,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465704538580377929, guid: fcb07ee1c1ac1484fa6afa8ec6702899,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8146459143448775432, guid: fcb07ee1c1ac1484fa6afa8ec6702899,
         type: 3}
