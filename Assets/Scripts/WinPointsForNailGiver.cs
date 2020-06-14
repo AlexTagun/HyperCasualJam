@@ -2,53 +2,53 @@
 
 public class WinPointsForNailGiver : MonoBehaviour
 {
-    internal void processNailHitted(float inOldNailPassedHeight, float inNewNailPassedHeight, float inNailHeight) {
+    internal void processNailHitted(float inOldNailPassedHeight, float inNewNailPassedHeight, float inNailHeight, float inPointsGivingFactor) {
         if (inNewNailPassedHeight > inOldNailPassedHeight) {
             float theHeightDeltaRatio = (inNewNailPassedHeight - inOldNailPassedHeight) / inNailHeight;
-            givePointsForHitPerHeightDelta(theHeightDeltaRatio);
+            givePointsForHitPerHeightDelta(theHeightDeltaRatio, inPointsGivingFactor);
 
             float theHalfNailHeight = inNailHeight / 2;
             if (inOldNailPassedHeight < theHalfNailHeight && inNewNailPassedHeight >= theHalfNailHeight)
-                givePointsForHalfHeightPassing();
+                givePointsForHalfHeightPassing(inPointsGivingFactor);
 
             if (inOldNailPassedHeight < inNailHeight && inNewNailPassedHeight >= inNailHeight)
-                givePointsForHeightPassing();
+                givePointsForHeightPassing(inPointsGivingFactor);
         }
     }
 
-    internal void processNailFinalizing(float inNailPassedHeight, float inNailHeight) {
+    internal void processNailFinalizing(float inNailPassedHeight, float inNailHeight, float inPointsGivingFactor) {
         if (0 == inNailPassedHeight) {
-            givePenaltyForNotTouchedNail();
+            givePenaltyForNotTouchedNail(inPointsGivingFactor);
         } else {
             float theHalfNailHeight = inNailHeight / 2;
             float theHeightDistanceFromHalfHeight = Mathf.Abs(inNailPassedHeight - theHalfNailHeight);
             float theHeightDistanceFromHalfHeightRatio = theHeightDistanceFromHalfHeight / theHalfNailHeight;
 
             if (inNailPassedHeight < theHalfNailHeight)
-                givePenaltyForLessThenHalfHeight(theHeightDistanceFromHalfHeightRatio);
+                givePenaltyForLessThenHalfHeight(theHeightDistanceFromHalfHeightRatio, inPointsGivingFactor);
         }
     }
 
-    private void givePointsForHitPerHeightDelta(float inHeightDeltaRatio) {
+    private void givePointsForHitPerHeightDelta(float inHeightDeltaRatio, float inPointsGivingFactor) {
         float theBonusToGive = _bonusForHitPerHeightDelta * inHeightDeltaRatio;
-        winPointsManager.changePoints(theBonusToGive);
+        winPointsManager.changePoints(theBonusToGive * inPointsGivingFactor);
     }
 
-    private void givePointsForHalfHeightPassing() {
-        winPointsManager.changePoints(_bonusForHalfHeightPassing);
+    private void givePointsForHalfHeightPassing(float inPointsGivingFactor) {
+        winPointsManager.changePoints(_bonusForHalfHeightPassing * inPointsGivingFactor);
     }
 
-    private void givePointsForHeightPassing() {
-        winPointsManager.changePoints(_bonusForHeightPassing);
+    private void givePointsForHeightPassing(float inPointsGivingFactor) {
+        winPointsManager.changePoints(_bonusForHeightPassing * inPointsGivingFactor);
     }
 
-    private void givePenaltyForLessThenHalfHeight(float inPenaltyHeightRatioNotPassed) {
+    private void givePenaltyForLessThenHalfHeight(float inPenaltyHeightRatioNotPassed, float inPointsGivingFactor) {
         float thePenaltyPointsToGive = inPenaltyHeightRatioNotPassed * _pointsPenaltryPerLessThenHalfHeight;
-        winPointsManager.changePoints(-thePenaltyPointsToGive);
+        winPointsManager.changePoints(-thePenaltyPointsToGive * inPointsGivingFactor);
     }
 
-    private void givePenaltyForNotTouchedNail() {
-        winPointsManager.changePoints(-_pointsPenaltryForNotTouchedNail);
+    private void givePenaltyForNotTouchedNail(float inPointsGivingFactor) {
+        winPointsManager.changePoints(-_pointsPenaltryForNotTouchedNail * inPointsGivingFactor);
     }
 
     private WinPointsManager winPointsManager => WinPointsManager.instance;
