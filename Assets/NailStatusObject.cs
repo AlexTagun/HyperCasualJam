@@ -23,7 +23,7 @@ public class NailStatusObject : MonoBehaviour
     }
 
     private void setNailFinishedStatus(float inPassedHeight, float inHeightToPass) {
-        if (0 != inPassedHeight && inPassedHeight >= inHeightToPass)
+        if (0f != inPassedHeight && inPassedHeight >= inHeightToPass)
             showMailFinishedStatusAnimation();
     }
 

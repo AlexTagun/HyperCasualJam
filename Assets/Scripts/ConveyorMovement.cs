@@ -31,8 +31,12 @@ public class ConveyorMovement : MonoBehaviour
         {
             GameObject objectBehindScreen = _objectsOnConveyoe[0];
             _objectsOnConveyoe.Remove(_objectsOnConveyoe[0]);
-            Destroy(objectBehindScreen);
 
+            var theNail = objectBehindScreen.GetComponent<NailObject>();
+            if (theNail)
+                theNail.finalize();
+
+            Destroy(objectBehindScreen);
         }
         if (_camera.WorldToViewportPoint(_objectsOnConveyoe[_objectsOnConveyoe.Count - 1].transform.position).x < 1)
         {

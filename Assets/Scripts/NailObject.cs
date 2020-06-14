@@ -87,17 +87,7 @@ public class NailObject : MonoBehaviour
         updateStatusObject(_passedHeight, _heightToPass);
     }
 
-    private void FixedUpdate() {
-        updateFinalizingLogic();
-    }
-
-    private void updateFinalizingLogic() {
-        Vector3 theViewportPosition = Camera.main.WorldToViewportPoint(transform.position);
-        if (theViewportPosition.x < 0f)
-            finalize();
-    }
-
-    private void finalize() {
+    public void finalize() {
         if (null != winPointsGiver)
             winPointsGiver.processNailFinalizing(_passedHeight, heightToPass, winPointsBasedOnStartingPassingFactor);
     }
