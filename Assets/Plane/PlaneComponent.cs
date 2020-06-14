@@ -12,6 +12,8 @@ public class PlaneComponent : MonoBehaviour {
     [SerializeField] private AudioClip pushSound;
     [SerializeField] private float throwRangeFrom;
     [SerializeField] private float throwRangeTo;
+    [SerializeField] private float angularVelocityRangeFrom;
+    [SerializeField] private float angularVelocityRangeTo;
     [SerializeField] private Transform directionPoint1;
     [SerializeField] private Transform directionPoint2;
     [SerializeField] private float speed;
@@ -60,8 +62,10 @@ public class PlaneComponent : MonoBehaviour {
         Plane.OnComponentStopMoving?.Invoke(this);
         var pos = transform.parent.TransformPoint(_startLocalPosition);
         rigidbody.MovePosition( pos);
+        rigidbody.MoveRotation(0);
         
         rigidbody.velocity = Vector2.zero;
+        rigidbody.angularVelocity = 0;
         Debug.Log("start coroutine");
         StartCoroutine(StartPushTimer());
     }
@@ -79,6 +83,7 @@ public class PlaneComponent : MonoBehaviour {
             audioSource.PlayOneShot(pushSound);
             Plane.OnComponentStartMoving?.Invoke(this);
             rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
+            rigidbody.angularVelocity = GetRandomAngularVelocity();
         } else {
             StartCoroutine(StartPushTimer());
         }
@@ -94,5 +99,10 @@ public class PlaneComponent : MonoBehaviour {
         var direction1 = (directionPoint1.position - transform.position).normalized;
         var direction2 = (directionPoint2.position - transform.position).normalized;
         return new Vector2(Random.Range(direction1.x, direction2.x), Random.Range(direction1.y, direction2.y));
+    }
+
+    private float GetRandomAngularVelocity() {
+        float k = Random.value > 0.5f ? 1 : -1;
+        return Random.Range(angularVelocityRangeFrom, angularVelocityRangeTo) * k;
     }
 }

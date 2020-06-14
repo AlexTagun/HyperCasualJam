@@ -55,6 +55,8 @@ MonoBehaviour:
   pushSound: {fileID: 8300000, guid: 92a8d5d542b76a24f89473cd080bbc4c, type: 3}
   throwRangeFrom: 1
   throwRangeTo: 2
+  angularVelocityRangeFrom: 5
+  angularVelocityRangeTo: 10
   directionPoint1: {fileID: 1576047993657782953}
   directionPoint2: {fileID: 3703463382820364577}
   speed: 3
