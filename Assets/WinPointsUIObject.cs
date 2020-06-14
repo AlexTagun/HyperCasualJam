@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class WinPointsUIObject : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class WinPointsUIObject : MonoBehaviour
 
         Vector2 theAnchorMax = _barRectTransform.anchorMax;
         theAnchorMax.x = thePartOfPoints;
-        _barRectTransform.anchorMax = theAnchorMax;
+        _barRectTransform.DOAnchorMax(theAnchorMax, 0.5f);//anchorMax = theAnchorMax;
     }
 
     private WinPointsManager winPointsManager => WinPointsManager.instance;
