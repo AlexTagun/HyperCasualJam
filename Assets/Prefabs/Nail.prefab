@@ -159,25 +159,34 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.00063852785
-      outSlope: 0.00063852785
+      inSlope: 0.005112897
+      outSlope: 0.005112897
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 11.883385
-      value: 0.0075878724
-      inSlope: 0.00063852785
-      outSlope: 0
-      tangentMode: 5
+      time: 82.13011
+      value: 0.41992283
+      inSlope: 0.017105488
+      outSlope: 0.017105488
+      tangentMode: 1
       weightedMode: 0
-      inWeight: 0.092831865
-      outWeight: 0.2988341
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 50
-      value: 0.39868164
-      inSlope: 0.010260453
+      time: 97.40228
+      value: 1.6081976
+      inSlope: 0.018738605
+      outSlope: 0.0006128132
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 116.89476
+      value: 1.6201428
+      inSlope: 0.0006128132
       outSlope: 0.12600362
       tangentMode: 5
       weightedMode: 0
@@ -210,11 +219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35efbbb0db0c0904688149869c31f801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bonusForHitPerHeightDelta: 10
-  _bonusForHalfHeightPassing: 4
-  _bonusForHeightPassing: 15
-  _pointsPenaltryPerLessThenHalfHeight: 1
-  _pointsPenaltryForNotTouchedNail: 4
+  _bonusForHitPerHeightDelta: 3
+  _bonusForHalfHeightPassing: 0.5
+  _bonusForHeightPassing: 0.5
+  _pointsPenaltryPerLessThenHalfHeight: 10
+  _pointsPenaltryForNotTouchedNail: 7
 --- !u!82 &4580415851451266428
 AudioSource:
   m_ObjectHideFlags: 0

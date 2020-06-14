@@ -234,7 +234,7 @@ MonoBehaviour:
   - {fileID: 290152251350879613}
   - {fileID: 290152250026492839}
   _directionMove: {x: -1, y: 0}
-  _speedMove: 3
+  _speedMove: 4
 --- !u!114 &4734074261908395937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,10 +257,10 @@ MonoBehaviour:
   - _objectForGenerate: {fileID: 5746401245449019573, guid: 10d47312952a01e48833ee342271bccd,
       type: 3}
     _generationProbability: 0.3
-  _minDistanceToNextObject: 1
-  _maxDistanceToNextObject: 1.5
-  _minYPosition: 0
-  _maxYPosition: 0.5
+  _minDistanceToNextObject: 10
+  _maxDistanceToNextObject: 25
+  _minYPosition: 1.4
+  _maxYPosition: 2.4
   transformParent: {fileID: 4734074263455457189}
 --- !u!50 &4734074261908395936
 Rigidbody2D:
@@ -1419,6 +1419,56 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4734074263455457189}
     m_Modifications:
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[0].inSlope
+      value: 0.0044486416
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[0].outSlope
+      value: 0.0044486416
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[1].time
+      value: 95.57341
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[1].value
+      value: 0.42517185
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[2].time
+      value: 114.69574
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[2].value
+      value: 1.6916326
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[2].outSlope
+      value: 0.007846967
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[3].time
+      value: 117.244736
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[3].value
+      value: 1.7116345
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022670934781622976, guid: c06701b30f6021744a70bb31b02cdcd3,
+        type: 3}
+      propertyPath: _movePerHitImpulseValueFactorCurve.m_Curve.Array.data[3].inSlope
+      value: 0.007846967
+      objectReference: {fileID: 0}
     - target: {fileID: 5022670934781622979, guid: c06701b30f6021744a70bb31b02cdcd3,
         type: 3}
       propertyPath: m_Name
