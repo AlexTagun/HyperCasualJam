@@ -36,11 +36,13 @@ public class PlaneLoseWindow : MonoBehaviour {
 
 
     private void OnGameEndHandler(TimeSpan timeSpan) {
-        _isNewRecord = timeSpan.Ticks > GetRecordTime().Ticks;
+        _isNewRecord = (timeSpan.Minutes * 60 + timeSpan.Seconds) > (GetRecordTime().Minutes * 60 + GetRecordTime().Seconds);
+        if(_isNewRecord) SetRecordTime(timeSpan);
         gameObject.SetActive(true);
         _canvasGroup.alpha = 0;
         _canvasGroup.DOFade(1, 1.5f);
         yourTimeText.text = $"Your time: {timeSpan.Minutes:00}:{timeSpan.Seconds:00}";
         bestTimeText.text = $"Best time: {GetRecordTime().Minutes:00}:{GetRecordTime().Seconds:00}";
+        // PlayerPrefs.DeleteAll();
     }
 }
