@@ -18,18 +18,18 @@ public class Airplane : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI stopwatchText;
     [SerializeField] private PlainBack plainBack;
     
-    public static Action<PlaneComponent> OnComponentStartMoving;
-    public static Action<PlaneComponent> OnComponentStopMoving;
+    public static Airplane Instance;
     private PlaneComponent[] _allPlaneComponents;
     private Stopwatch _stopwatch;
 
     private float _startHeightValue = 8;
     private float _curHeightValue;
 
-    private float CurHeightValue {
+    public float CurHeightValue {
         set {
             if (value <= 0) {
-                PlaneLoseWindow.OnGameEnd?.Invoke(_stopwatch.Elapsed);
+                // PlaneLoseWindow.OnGameEnd?.Invoke(_stopwatch.Elapsed);
+                PlaneLoseWindow.Instance.OnGameEndHandler(_stopwatch.Elapsed);
                 _stopwatch.Stop();
             }
             var newScale = heightImage.transform.localScale;
@@ -44,20 +44,14 @@ public class Airplane : MonoBehaviour {
     }
 
     private void Start() {
+        Instance = this;
         wingUp.CanMove = false;
         wingDown.CanMove = false;
 
         _allPlaneComponents = GetComponentsInChildren<PlaneComponent>();
 
         _curHeightValue = _startHeightValue;
-        OnComponentStartMoving += (obj) => {
-            CurHeightValue -= 1;
-        };
-        
-        OnComponentStopMoving += (obj) => {
-            CurHeightValue += 0.75f;
-        };
-        
+
         _stopwatch = new Stopwatch();
         _stopwatch.Start();
     }

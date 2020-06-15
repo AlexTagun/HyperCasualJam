@@ -13,15 +13,15 @@ public class PlaneLoseWindow : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI yourTimeText;
     [SerializeField] private TextMeshProUGUI bestTimeText;
     [SerializeField] private CanvasGroup _canvasGroup;
-    public static Action<TimeSpan> OnGameEnd;
+    public static PlaneLoseWindow Instance;
 
     private bool _isNewRecord;
 
     private void Awake() {
+        Instance = this;
         tryAgainButton.onClick.AddListener(() => SceneManager.LoadScene("Plane"));
         mainMenuButton.onClick.AddListener(() => SceneManager.LoadScene("MainMenu"));
         
-        OnGameEnd += OnGameEndHandler;
         gameObject.SetActive(false);
     }
 
@@ -35,7 +35,7 @@ public class PlaneLoseWindow : MonoBehaviour {
     }
 
 
-    private void OnGameEndHandler(TimeSpan timeSpan) {
+    public void OnGameEndHandler(TimeSpan timeSpan) {
         _isNewRecord = (timeSpan.Minutes * 60 + timeSpan.Seconds) > (GetRecordTime().Minutes * 60 + GetRecordTime().Seconds);
         if(_isNewRecord) SetRecordTime(timeSpan);
         gameObject.SetActive(true);

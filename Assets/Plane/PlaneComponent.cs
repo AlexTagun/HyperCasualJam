@@ -71,7 +71,8 @@ public class PlaneComponent : MonoBehaviour {
         
         _isMoving = false;
         audioSource.PlayOneShot(putSound);
-        Airplane.OnComponentStopMoving?.Invoke(this);
+        // Airplane.OnComponentStopMoving?.Invoke(this);
+        Airplane.Instance.CurHeightValue += 0.75f;
         var pos = transform.parent.TransformPoint(_startLocalPosition);
         rigidbody.MovePosition( pos);
         rigidbody.MoveRotation(0);
@@ -93,7 +94,8 @@ public class PlaneComponent : MonoBehaviour {
         if (CanMove) {
             _isMoving = true;
             audioSource.PlayOneShot(pushSound);
-            Airplane.OnComponentStartMoving?.Invoke(this);
+            // Airplane.OnComponentStartMoving?.Invoke(this);
+            Airplane.Instance.CurHeightValue -= 1;
             rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
             rigidbody.angularVelocity = GetRandomAngularVelocity();
             Camera.main.transform.DOShakePosition(3, 0.3f, 3, 90);
