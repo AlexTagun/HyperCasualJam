@@ -69,6 +69,9 @@ MonoBehaviour:
   yourTimeText: {fileID: 7512982308890279828}
   bestTimeText: {fileID: 7512982308835131606}
   _canvasGroup: {fileID: 988881016748678683}
+  mainSource: {fileID: 0}
+  winSong: {fileID: 8300000, guid: 8d701d486123ef947a8c4f6faa755849, type: 3}
+  loseSong: {fileID: 8300000, guid: 8d701d486123ef947a8c4f6faa755849, type: 3}
 --- !u!114 &7512982307966663908
 MonoBehaviour:
   m_ObjectHideFlags: 0

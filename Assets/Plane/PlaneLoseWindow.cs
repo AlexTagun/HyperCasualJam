@@ -13,6 +13,9 @@ public class PlaneLoseWindow : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI yourTimeText;
     [SerializeField] private TextMeshProUGUI bestTimeText;
     [SerializeField] private CanvasGroup _canvasGroup;
+    [SerializeField] private AudioSource mainSource;
+    [SerializeField] private AudioClip winSong;
+    [SerializeField] private AudioClip loseSong;
     public static PlaneLoseWindow Instance;
 
     private bool _isNewRecord;
@@ -38,6 +41,8 @@ public class PlaneLoseWindow : MonoBehaviour {
     public void OnGameEndHandler(TimeSpan timeSpan) {
         _isNewRecord = (timeSpan.Minutes * 60 + timeSpan.Seconds) > (GetRecordTime().Minutes * 60 + GetRecordTime().Seconds);
         if(_isNewRecord) SetRecordTime(timeSpan);
+        mainSource.Stop();
+        mainSource.PlayOneShot(_isNewRecord ? winSong : loseSong);
         gameObject.SetActive(true);
         _canvasGroup.alpha = 0;
         _canvasGroup.DOFade(1, 1.5f);
