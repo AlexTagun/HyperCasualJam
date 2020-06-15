@@ -96,7 +96,6 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -545,6 +544,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7512982307966663914, guid: bd14e489fc2b36a438d5f9ceaf18e998,
+        type: 3}
+      propertyPath: mainSource
+      value: 
+      objectReference: {fileID: 1964096055}
     - target: {fileID: 7512982307969880291, guid: bd14e489fc2b36a438d5f9ceaf18e998,
         type: 3}
       propertyPath: m_Enabled
@@ -1752,7 +1756,6 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
