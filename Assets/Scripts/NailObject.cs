@@ -120,7 +120,7 @@ public class NailObject : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private List<Sound> _sounds = new List<Sound>();
-    [SerializeField] private GameObject _soundPlayer;
+    [SerializeField] private GameObject _soundPlayer = null;
 
     private float _heightToPass = 0f;
     private float _winPointsBasedOnStartingPassingFactor = 0f;

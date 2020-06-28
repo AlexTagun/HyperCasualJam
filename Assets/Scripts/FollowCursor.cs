@@ -5,13 +5,13 @@ using UnityEngine;
 public class FollowCursor : MonoBehaviour
 {
     // Start is called before the first frame update
-    private Camera _camera;
-    private Rigidbody2D _rigidbody2D;
+    private Camera _camera = null;
+    private Rigidbody2D _rigidbody2D = null;
 
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed = 0f;
 
-    private Vector3 mousePosition;
-    private Vector2 position;
+    private Vector3 mousePosition = Vector3.zero;
+    private Vector2 position = Vector2.zero;
     void Start()
     {
         _camera = Camera.main;

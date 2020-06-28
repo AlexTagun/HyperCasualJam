@@ -7,25 +7,25 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class PlaneComponent : MonoBehaviour {
-    [SerializeField] private Rigidbody2D rigidbody;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip putSound;
-    [SerializeField] private AudioClip pushSound;
-    [SerializeField] private float throwRangeFrom;
-    [SerializeField] private float throwRangeTo;
-    [SerializeField] private float angularVelocityRangeFrom;
-    [SerializeField] private float angularVelocityRangeTo;
-    [SerializeField] private Transform directionPoint1;
-    [SerializeField] private Transform directionPoint2;
-    [SerializeField] private float speed;
-    [SerializeField] private float accuracy;
+    [SerializeField] private Rigidbody2D planeRigidbody = null;
+    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] private AudioClip putSound = null;
+    [SerializeField] private AudioClip pushSound = null;
+    [SerializeField] private float throwRangeFrom = 0f;
+    [SerializeField] private float throwRangeTo = 0f;
+    [SerializeField] private float angularVelocityRangeFrom = 0f;
+    [SerializeField] private float angularVelocityRangeTo = 0f;
+    [SerializeField] private Transform directionPoint1 = null;
+    [SerializeField] private Transform directionPoint2 = null;
+    [SerializeField] private float speed = 0f;
+    [SerializeField] private float accuracy = 0f;
     
     private bool _isMouseDown = false;
-    private Vector2 _mouseDelta;
-    private Vector2 _startLocalPosition;
+    private Vector2 _mouseDelta = Vector2.zero;
+    private Vector2 _startLocalPosition = Vector2.zero;
 
     public bool IsMoving => _isMoving;
-    private bool _isMoving;
+    private bool _isMoving = false;
     public bool CanMove = true;
     public bool CanPut = true;
 
@@ -74,18 +74,18 @@ public class PlaneComponent : MonoBehaviour {
         // Airplane.OnComponentStopMoving?.Invoke(this);
         Airplane.Instance.CurHeightValue += 0.75f;
         var pos = transform.parent.TransformPoint(_startLocalPosition);
-        rigidbody.MovePosition( pos);
-        rigidbody.MoveRotation(0);
-        
-        rigidbody.velocity = Vector2.zero;
-        rigidbody.angularVelocity = 0;
+        planeRigidbody.MovePosition( pos);
+        planeRigidbody.MoveRotation(0);
+
+        planeRigidbody.velocity = Vector2.zero;
+        planeRigidbody.angularVelocity = 0;
         Debug.Log("start coroutine");
         StartCoroutine(StartPushTimer());
     }
 
     private void Update() {
         if(!_isMouseDown) return;
-        rigidbody.MovePosition(MousePosition + _mouseDelta);
+        planeRigidbody.MovePosition(MousePosition + _mouseDelta);
     }
 
     private void Push() {
@@ -96,8 +96,8 @@ public class PlaneComponent : MonoBehaviour {
             audioSource.PlayOneShot(pushSound);
             // Airplane.OnComponentStartMoving?.Invoke(this);
             Airplane.Instance.CurHeightValue -= 1;
-            rigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
-            rigidbody.angularVelocity = GetRandomAngularVelocity();
+            planeRigidbody.AddForce(GetRandomDirection() * speed, ForceMode2D.Impulse);
+            planeRigidbody.angularVelocity = GetRandomAngularVelocity();
             Camera.main.transform.DOShakePosition(3, 0.3f, 3, 90);
         } else {
             StartCoroutine(StartPushTimer());

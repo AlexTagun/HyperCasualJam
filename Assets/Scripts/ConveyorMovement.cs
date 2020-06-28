@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ConveyorMovement : MonoBehaviour
 {
     
-    [SerializeField] private GenerationObjectOnBoard _generationObjectOnBoard;
-    [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] private GenerationObjectOnBoard _generationObjectOnBoard = null;
+    [SerializeField] private Rigidbody2D _rigidbody2D = null;
     [SerializeField] private List<GameObject> _partsConveyor = new List<GameObject>();
     [SerializeField] private List<GameObject> _objectsOnConveyoe = new List<GameObject>();
     [SerializeField] private AnimationCurve _speedConveyorOnTimeCurve = null;
-    [SerializeField] private Vector2 _directionMove;
+    [SerializeField] private Vector2 _directionMove = Vector2.zero;
     //[SerializeField] private float _speedMove;
-    private Camera _camera;
+    private Camera _camera = null;
 
     public float GAME_TIMER = 0f;
 

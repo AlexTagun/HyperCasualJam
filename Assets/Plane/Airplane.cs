@@ -9,21 +9,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Airplane : MonoBehaviour {
-    [SerializeField] private PlaneComponent wingUp;
-    [SerializeField] private PlaneComponent wingDown;
-    [SerializeField] private PlaneComponent[] enginesUp;
-    [SerializeField] private PlaneComponent[] enginesDown;
-    [SerializeField] private Image heightImage;
-    [SerializeField] private GameObject loseWindow;
-    [SerializeField] private TextMeshProUGUI stopwatchText;
-    [SerializeField] private PlainBack plainBack;
+    [SerializeField] private PlaneComponent wingUp = null;
+    [SerializeField] private PlaneComponent wingDown = null;
+    [SerializeField] private PlaneComponent[] enginesUp = null;
+    [SerializeField] private PlaneComponent[] enginesDown = null;
+    [SerializeField] private Image heightImage = null;
+    [SerializeField] private TextMeshProUGUI stopwatchText = null;
+    [SerializeField] private PlainBack plainBack = null;
     
-    public static Airplane Instance;
-    private PlaneComponent[] _allPlaneComponents;
-    private Stopwatch _stopwatch;
+    public static Airplane Instance = null;
+    private PlaneComponent[] _allPlaneComponents = null;
+    private Stopwatch _stopwatch = null;
 
     private float _startHeightValue = 8;
-    private float _curHeightValue;
+    private float _curHeightValue = 0f;
 
     public float CurHeightValue {
         set {

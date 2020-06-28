@@ -6,8 +6,8 @@ using DG.Tweening;
 
 public class GameEndManager : MonoBehaviour
 {
-    [SerializeField] private WinPointsManager _winPointsManager;
-    [SerializeField] private UIManager _UIManager;
+    [SerializeField] private WinPointsManager _winPointsManager = null;
+    [SerializeField] private UIManager _UIManager = null;
 
 
     private void Update()

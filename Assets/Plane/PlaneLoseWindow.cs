@@ -8,17 +8,17 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlaneLoseWindow : MonoBehaviour {
-    [SerializeField] private Button tryAgainButton;
-    [SerializeField] private Button mainMenuButton;
-    [SerializeField] private TextMeshProUGUI yourTimeText;
-    [SerializeField] private TextMeshProUGUI bestTimeText;
-    [SerializeField] private CanvasGroup _canvasGroup;
-    [SerializeField] private AudioSource mainSource;
-    [SerializeField] private AudioClip winSong;
-    [SerializeField] private AudioClip loseSong;
-    public static PlaneLoseWindow Instance;
+    [SerializeField] private Button tryAgainButton = null;
+    [SerializeField] private Button mainMenuButton = null;
+    [SerializeField] private TextMeshProUGUI yourTimeText = null;
+    [SerializeField] private TextMeshProUGUI bestTimeText = null;
+    [SerializeField] private CanvasGroup _canvasGroup = null;
+    [SerializeField] private AudioSource mainSource = null;
+    [SerializeField] private AudioClip winSong = null;
+    [SerializeField] private AudioClip loseSong = null;
+    public static PlaneLoseWindow Instance = null;
 
-    private bool _isNewRecord;
+    private bool _isNewRecord = false;
 
     private void Awake() {
         Instance = this;

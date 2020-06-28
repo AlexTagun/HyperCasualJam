@@ -12,11 +12,11 @@ using Random = UnityEngine.Random;
 public class GenerationObjectOnBoard : MonoBehaviour
 {
     [SerializeField] private List<ObjectGeneration> _generationsObjects = new List<ObjectGeneration>();
-    [SerializeField] private float _minDistanceToNextObject;
-    [SerializeField] private float _maxDistanceToNextObject;
-    [SerializeField] private float _minYPosition;
-    [SerializeField] private float _maxYPosition;
-    [SerializeField] private Transform transformParent;
+    [SerializeField] private float _minDistanceToNextObject = 0f;
+    [SerializeField] private float _maxDistanceToNextObject = 0f;
+    [SerializeField] private float _minYPosition = 0f;
+    [SerializeField] private float _maxYPosition = 0f;
+    [SerializeField] private Transform transformParent = null;
 
 
     public GameObject GenerationRandomObjectAtRandomInterval(Transform lastObject)

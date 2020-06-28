@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlainBack : MonoBehaviour {
-    [SerializeField] private SpriteRenderer spriteRenderer;
-    [SerializeField] private float speed;
+    [SerializeField] private SpriteRenderer spriteRenderer = null;
+    [SerializeField] private float speed = 0f;
 
-    private float _curValue;
+    private float _curValue = 0f;
     
     private void Start() {
         _curValue = 0;
